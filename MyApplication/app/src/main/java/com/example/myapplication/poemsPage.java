@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -49,6 +50,12 @@ public class poemsPage extends AppCompatActivity {
             }
         });
 
+    }
 
+    /**
+     * back_to_previous to previous interface
+     */
+    public void back_to_main(View view) {
+        poemsPage.this.finish();
     }
 }
