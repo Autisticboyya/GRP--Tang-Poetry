@@ -26,26 +26,20 @@
             android:layout_toLeftOf="@+id/title"
             android:background="@mipmap/back_to_previous"
             android:onClick="back_to_main" />
+
+        <Button
+            android:id="@+id/poem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="->"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="50dp" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/home"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/home" />
-
-        <Button
-            android:id="@+id/game"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/game" />
 
         <Button
             android:id="@+id/me"
