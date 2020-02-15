@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -27,27 +29,30 @@
             android:background="@mipmap/back_to_previous"
             android:onClick="back_to_main" />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="50dp"
+            tools:layoutManager="GridLayoutManager"
+            tools:listitem="@layout/recycler_view_item"
+            tools:spanCount="1" />
+
         <Button
-            android:id="@+id/poem"
+            android:id="@+id/orderByPoem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="->"
             android:layout_below="@+id/title"
-            android:layout_marginTop="50dp" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+            android:text="Poem" />
 
         <Button
-            android:id="@+id/me"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/me" />
-
-    </LinearLayout>
+            android:id="@+id/orderByAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_toRightOf="@+id/orderByPoem"
+            android:text="Author" />
+    </RelativeLayout>
 
 </LinearLayout>

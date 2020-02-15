@@ -14,11 +14,18 @@ public class Poem {
     private String poemName;
     @Property(nameInDb = "authorName")
     private String authorName;
-    @Generated(hash = 1070710514)
-    public Poem(Long id, String poemName, String authorName) {
+    @Property(nameInDb = "chineseVersion")
+    private String chineseVersion;
+    @Property(nameInDb = "EnglishVersion")
+    private String EnglishVersion;
+    @Generated(hash = 168613105)
+    public Poem(Long id, String poemName, String authorName, String chineseVersion,
+            String EnglishVersion) {
         this.id = id;
         this.poemName = poemName;
         this.authorName = authorName;
+        this.chineseVersion = chineseVersion;
+        this.EnglishVersion = EnglishVersion;
     }
     @Generated(hash = 1852989059)
     public Poem() {
@@ -40,6 +47,18 @@ public class Poem {
     }
     public void setAuthorName(String authorName) {
         this.authorName = authorName;
+    }
+    public String getChineseVersion() {
+        return this.chineseVersion;
+    }
+    public void setChineseVersion(String chineseVersion) {
+        this.chineseVersion = chineseVersion;
+    }
+    public String getEnglishVersion() {
+        return this.EnglishVersion;
+    }
+    public void setEnglishVersion(String EnglishVersion) {
+        this.EnglishVersion = EnglishVersion;
     }
 
 }
