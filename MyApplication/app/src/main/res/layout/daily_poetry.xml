@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
 
+        <Button
+        android:id="@+id/home"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:text="@string/home" />
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
@@ -16,34 +17,7 @@
             android:layout_centerHorizontal="true"
             android:text="Daily Poetry"
             android:textSize="36sp" />
-    </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/home"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/home" />
 
-        <Button
-            android:id="@+id/game"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/game" />
-
-        <Button
-            android:id="@+id/me"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/me" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

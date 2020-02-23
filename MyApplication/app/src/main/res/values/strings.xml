@@ -9,7 +9,8 @@
     <string name="user_guide">User Guide</string>
     <string name="viewing_poems">Viewing poems</string>
     <string name="daily_poetry">Daily poetry</string>
-    <string name="home">Home</string>
+    <string name="home">&lt;</string>
+
     <string name="game">GAME</string>
     <string name="me">me</string>
     <string name="setting">setting</string>

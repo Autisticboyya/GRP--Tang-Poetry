@@ -4,10 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_weight="1"
     android:background="@drawable/home_page_background"
     android:orientation="vertical"
-    tools:context=".homePage">
+    >
 
 
     <RelativeLayout
@@ -54,34 +53,6 @@
             android:layout_marginTop="50dp"/>
 
     </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/home"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/home" />
-
-        <Button
-            android:id="@+id/game"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/game" />
-
-        <Button
-            android:id="@+id/me"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/me" />
-
-    </LinearLayout>
 
 
 </LinearLayout>
