@@ -1,34 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/darker_gray">
+    android:background="@android:color/darker_gray"
+    >
 
     <TextView
-        android:id="@+id/poemName1"
+        android:id="@+id/tag"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#E0E0E0"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:text="A"
+        android:textColor="#454545" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:gravity="left"
-        android:text="@string/poemname"
-        android:textSize="24sp"
-        android:layout_marginBottom="1dp"
+        android:layout_below="@id/tag"
         android:background="@android:color/background_light"
         />
 
     <TextView
-        android:id="@+id/authorName1"
-        android:layout_width="match_parent"
+        android:id="@+id/poemName1"
+        android:layout_below="@id/tag"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginLeft="300dp"
-        android:text="an"
-        android:textSize="24sp" />
+        android:gravity="left"
+        android:text="@string/poemname"
+        android:textSize="18sp"
+        android:layout_marginBottom="1dp"
+        android:maxEms="10"
+        android:lines="2"
+        android:ellipsize="end" />
+
+    <TextView
+        android:id="@+id/authorName1"
+        android:layout_below="@id/tag"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginStart="220dp"
+        android:text="@string/an"
+        android:textSize="18sp"
+        android:maxEms="5"
+        android:lines="2" />
 
     <Button
         android:id="@+id/go_in1"
+        android:layout_below="@id/tag"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:text="->"
-        android:layout_gravity="right"/>
+        android:text="@string/a"
+        android:layout_marginLeft="340dp"
+        android:layout_marginStart="340dp"
+        />
 
 
-</FrameLayout>
+</RelativeLayout>

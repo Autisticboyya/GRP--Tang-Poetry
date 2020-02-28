@@ -16,4 +16,22 @@
     <string name="poems_list">Poems List</string>
     <string name="authorname">AuthorName</string>
     <string name="poemname">PoemName</string>
+    <string name="finish_this_interface">finish this interface</string>
+    <string name="poem_name">POEM_NAME</string>
+    <string name="author_name">AUTHOR_NAME</string>
+    <string name="first_sentence">FIRST SENTENCE</string>
+    <string name="first_sentence_english">FIRST SENTENCE ENGLISH</string>
+    <string name="second_sentence">SECOND SENTENCE</string>
+    <string name="second_sentence_english">SECOND SENTENCE ENGLISH</string>
+    <string name="third_sentence">THIRD SENTENCE</string>
+    <string name="third_sentence_english">THIRD SENTENCE ENGLISH</string>
+    <string name="fourth_sentence">FOURTH SENTENCE</string>
+    <string name="fourth_sentence_english">FOURTH SENTENCE ENGLISH</string>
+    <string name="poem_name_english">POEM_NAME_ENGLISH</string>
+    <string name="author_name_english">author_name_english</string>
+    <string name="translate">translate</string>
+    <string name="back">back</string>
+    <string name="an">an</string>
+    <string name="a"><![CDATA[->]]></string>
+    <string name="author">Author</string>
 </resources>

@@ -10,49 +10,151 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
+        <com.example.sortrecyclerview.ClearEditText
+            android:id="@+id/filter_edit"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/poems_list"
-            android:textSize="36sp" />
+            android:layout_toRightOf="@+id/back"
+            android:background="#9DDE76"
+            android:drawableLeft="@drawable/search_bar_icon_normal"
+            android:hint="Plz enter key words"
+            android:maxLines="1"
+            android:paddingLeft="8dp"
+            android:textSize="15sp"
+            />
+
 
         <ImageView
             android:id="@+id/back"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginRight="70dp"
-            android:layout_toLeftOf="@+id/title"
             android:background="@mipmap/back_to_previous"
-            android:onClick="back_to_main" />
+            android:onClick="back_to_main"
+            android:contentDescription="@string/back"/>
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toRightOf="@+id/filter_edit"
+            android:background="@mipmap/search"
+            android:contentDescription="@string/back"
+            android:onClick="search" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/title"
-            android:layout_marginTop="50dp"
+            android:layout_height="582dp"
+            android:layout_below="@+id/filter_edit"
+            android:layout_marginTop="100dp"
             tools:layoutManager="GridLayoutManager"
             tools:listitem="@layout/recycler_view_item"
-            tools:spanCount="1" />
+            tools:spanCount="1"
+            android:scrollbars="vertical"
+            app:fastScrollEnabled="true"
+            app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
+            app:fastScrollHorizontalTrackDrawable="@drawable/line_drawable"
+            app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
+            app:fastScrollVerticalTrackDrawable="@drawable/line_drawable" />
 
         <Button
             android:id="@+id/orderByPoem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
+            android:layout_below="@+id/filter_edit"
+            android:layout_marginTop="50dp"
             android:text="Poem" />
 
         <Button
             android:id="@+id/orderByAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title"
+            android:layout_below="@+id/filter_edit"
+            android:text="@string/author" />
+
+        <Button
+            android:id="@+id/farewell"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/filter_edit"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_toEndOf="@+id/orderByAuthor"
+            android:layout_toRightOf="@+id/orderByAuthor"
+            android:text="farewell" />
+
+        <Button
+            android:id="@+id/Frontier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/filter_edit"
+            android:layout_toEndOf="@+id/farewell"
+            android:layout_toRightOf="@+id/farewell"
+            android:text="Frontier" />
+
+        <Button
+            android:id="@+id/scenery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/filter_edit"
+            android:layout_toEndOf="@+id/Frontier"
+            android:layout_toRightOf="@+id/Frontier"
+            android:text="scenery" />
+
+        <Button
+            android:id="@+id/history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/filter_edit"
+            android:layout_marginStart="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_toEndOf="@+id/orderByPoem"
             android:layout_toRightOf="@+id/orderByPoem"
-            android:text="Author" />
+            android:text="history" />
+
+        <Button
+            android:id="@+id/other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/filter_edit"
+            android:layout_marginTop="50dp"
+            android:layout_toRightOf="@+id/history"
+            android:layout_toEndOf="@+id/history"
+            android:text="other" />
+
+        <Button
+            android:id="@+id/showAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/filter_edit"
+            android:layout_marginTop="50dp"
+            android:layout_toEndOf="@+id/other"
+            android:layout_toRightOf="@+id/other"
+            android:text="showAll" />
+
+        <TextView
+            android:id="@+id/dialog"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:background="#DE76"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="30sp"
+            android:visibility="invisible" />
+
+        <com.example.sortrecyclerview.SideBar
+            android:id="@+id/sideBar"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/showAll"
+            android:layout_alignParentRight="true"
+            />
     </RelativeLayout>
 
 </LinearLayout>

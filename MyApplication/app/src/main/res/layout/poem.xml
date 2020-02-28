@@ -13,106 +13,144 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="@mipmap/back_to_previous"
-            android:onClick="back_to_main" />
+            android:onClick="back_to_main"
+            android:contentDescription="@string/finish_this_interface"/>
 
         <TextView
             android:id="@+id/poemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:text="POEM_NAME"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:text="@string/poem_name"
             android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/poemNameEnglish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/poemName"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:maxEms="20"
+            android:lines="2" />
 
         <TextView
             android:id="@+id/authorName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/poemName"
-            android:layout_marginTop="20dp"
-            android:text="AUTHOR_NAME"
+            android:gravity="center"
+            android:layout_below="@+id/poemNameEnglish"
+            android:layout_marginTop="30dp"
+            android:text="@string/author_name"
             android:textSize="24sp"/>
 
         <TextView
-            android:id="@+id/firstSentence"
+            android:id="@+id/authorNameEnglish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_below="@+id/authorName"
+            android:textSize="18sp"/>
+
+        <TextView
+            android:id="@+id/firstSentence"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:layout_below="@+id/authorName"
             android:layout_marginTop="50dp"
-            android:text="FIRST    SENTENCE"
-            android:textSize="36sp"/>
+            android:text="@string/first_sentence"
+            android:textSize="30sp"/>
 
         <TextView
             android:id="@+id/firstSentenceEnglish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:layout_below="@+id/firstSentence"
-            android:layout_marginTop="10dp"
-            android:text="FIRST SENTENCE ENGLISH"
-            android:textSize="24sp"/>
+            android:textSize="18sp"
+            android:maxEms="15"
+            android:lines="2"/>
 
         <TextView
             android:id="@+id/secondSentence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/firstSentence"
-            android:layout_marginTop="50dp"
-            android:text="SECOND    SENTENCE"
-            android:textSize="36sp"/>
+            android:gravity="center"
+            android:layout_below="@+id/firstSentenceEnglish"
+            android:text="@string/second_sentence"
+            android:textSize="30sp"/>
 
         <TextView
             android:id="@+id/secondSentenceEnglish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:layout_below="@+id/secondSentence"
-            android:layout_marginTop="10dp"
-            android:text="SECOND SENTENCE ENGLISH"
-            android:textSize="24sp"/>
+            android:textSize="18sp"
+            android:maxEms="15"
+            android:lines="2"/>
 
         <TextView
             android:id="@+id/thirdSentence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/secondSentence"
-            android:layout_marginTop="50dp"
-            android:text="THIRD    SENTENCE"
-            android:textSize="36sp"/>
+            android:gravity="center"
+            android:layout_below="@+id/secondSentenceEnglish"
+            android:text="@string/third_sentence"
+            android:textSize="30sp"/>
 
         <TextView
             android:id="@+id/thirdSentenceEnglish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:layout_below="@+id/thirdSentence"
-            android:layout_marginTop="10dp"
-            android:text="THIRD SENTENCE ENGLISH"
-            android:textSize="24sp"/>
+            android:textSize="18sp"
+            android:maxEms="15"
+            android:lines="2"/>
 
         <TextView
             android:id="@+id/fourthSentence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/thirdSentence"
-            android:layout_marginTop="50dp"
-            android:text="FOURTH    SENTENCE"
-            android:textSize="36sp"/>
+            android:gravity="center"
+            android:layout_below="@+id/thirdSentenceEnglish"
+            android:text="@string/fourth_sentence"
+            android:textSize="30sp"/>
 
         <TextView
             android:id="@+id/fourthSentenceEnglish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:layout_below="@+id/fourthSentence"
-            android:layout_marginTop="10dp"
-            android:text="FOURTH SENTENCE ENGLISH"
-            android:textSize="24sp"/>
+            android:textSize="18sp"
+            android:maxEms="15"
+            android:lines="2"/>
+
+        <Button
+            android:id="@+id/translate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/translate"
+            android:layout_toRightOf="@+id/back"
+            android:layout_toEndOf="@+id/back"
+            android:layout_marginLeft="250dp"
+            android:layout_marginStart="250dp"/>
 
 
     </RelativeLayout>
