@@ -1,112 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-<TextView
-
-    android:layout_width="wrap_content"
-
-    android:layout_height="wrap_content"
-
-    android:layout_gravity="center_horizontal"
-
-    android:layout_margin="10dp"
-
-    android:text="greenDao lib test"
-
-    android:textColor="@android:color/black" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
+        <TextView
+            android:id="@+id/introduction_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="Author's brief introduction"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"/>
 
-<EditText
+        <ImageView
+            android:id="@+id/Lee_Bai"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/introduction_title"
+            android:layout_centerHorizontal="true"
+            app:srcCompat="@drawable/li_bai" />
 
-    android:id="@+id/etId"
+        <TextView
+            android:id="@+id/introduction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Lee_Bai"
+            android:layout_centerHorizontal="true"
+            android:text="Li bai (701-762), styled taibai, also known as qinglian jushi, also known as 'exiled immortal', was a great romantic poet of the tang dynasty, known as 'poetic immortal' by later generations. According to the new tang book 'records, li bai xing SAN for the emperor (cool Wu Zhaowang Gao lee) ix, sun and Li Tang Wang Tongzong. He is generous, love to drink and write poetry, like to make friends."
+            android:gravity="center"
+            android:textSize="18sp"
+            android:maxEms="17"/>
 
-    android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/poem_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="background"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/introduction"
+            android:layout_marginTop="50dp"/>
 
-    android:layout_height="wrap_content"
-
-    android:hint="请输入用户id"
-
-    android:inputType="number"
-
-    android:textSize="15sp" />
-
-
-
-<EditText
-
-    android:id="@+id/etName"
-
-    android:layout_width="match_parent"
-
-    android:layout_height="wrap_content"
-
-    android:hint="请输入用户名"
-
-    android:textSize="15sp" />
-
-
-
-<Button
-
-    android:id="@+id/btnAdd"
-
-    android:layout_width="match_parent"
-
-    android:layout_height="wrap_content"
-
-    android:text="新增" />
+        <TextView
+            android:id="@+id/poemBackgrounds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="This poem is generally believed to have been written by li bai when he first visited mount lushan on his way to jinling around 725 AD ."
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/poem_background"
+            android:maxEms="17"/>
 
 
-
-<Button
-
-    android:id="@+id/btnDelete"
-
-    android:layout_width="match_parent"
-
-    android:layout_height="wrap_content"
-
-    android:text="删除" />
+    </RelativeLayout>
 
 
 
-<Button
 
-    android:id="@+id/btnQuery"
-
-    android:layout_width="match_parent"
-
-    android:layout_height="wrap_content"
-
-    android:text="查询" />
-
-
-
-<TextView
-
-    android:layout_width="wrap_content"
-
-    android:layout_height="wrap_content"
-
-    android:layout_gravity="center_horizontal"
-
-    android:layout_margin="10dp"
-
-    android:text="查询结果"
-
-    android:textColor="@android:color/black" />
-
-
-
-    <TextView
-        android:id="@+id/tvQuery"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:textColor="@android:color/black" />
 </LinearLayout>

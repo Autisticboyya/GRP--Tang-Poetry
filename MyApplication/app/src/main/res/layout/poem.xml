@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
@@ -44,7 +46,6 @@
             android:layout_centerHorizontal="true"
             android:gravity="center"
             android:layout_below="@+id/poemNameEnglish"
-            android:layout_marginTop="30dp"
             android:text="@string/author_name"
             android:textSize="24sp"/>
 
@@ -149,11 +150,114 @@
             android:text="@string/translate"
             android:layout_toRightOf="@+id/back"
             android:layout_toEndOf="@+id/back"
-            android:layout_marginLeft="250dp"
-            android:layout_marginStart="250dp"/>
+            android:layout_marginLeft="150dp"
+            android:layout_marginStart="150dp"/>
 
+        <Button
+            android:id="@+id/show_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vedio"
+            android:layout_toRightOf="@+id/translate"
+            android:layout_toEndOf="@+id/translate"
+            />
+
+
+
+        <com.example.sidebottom.SlideBottomLayout
+            android:id="@+id/slideLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="200dp"
+            app:handler_height="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#FFFFFF">
+
+                <TextView
+                    android:id="@+id/handle"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#d95858"
+                    android:gravity="center"
+                    android:text="Learn More..."
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+
+                <ScrollView
+                    android:id="@+id/scrollView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                        <TextView
+                            android:id="@+id/introduction_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="30sp"
+                            android:text="AUTHOR'S BRIEF INTRODUCTION"
+                            android:gravity="center"
+                            android:layout_centerHorizontal="true"/>
+
+                        <ImageView
+                            android:id="@+id/Lee_Bai"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"
+                            android:layout_below="@+id/introduction_title"
+                            android:layout_centerHorizontal="true"
+                            app:srcCompat="@drawable/li_bai" />
+
+                        <TextView
+                            android:id="@+id/introduction"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/Lee_Bai"
+                            android:layout_centerHorizontal="true"
+                            android:text="Li bai (701-762), styled taibai, also known as qinglian jushi, also known as 'exiled immortal', was a great romantic poet of the tang dynasty, known as 'poetic immortal' by later generations. According to the new tang book 'records, li bai xing SAN for the emperor (cool Wu Zhaowang Gao lee) ix, sun and Li Tang Wang Tongzong. He is generous, love to drink and write poetry, like to make friends."
+                            android:gravity="center"
+                            android:textSize="18sp"
+                            android:maxEms="17"/>
+
+                        <TextView
+                            android:id="@+id/poem_background"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BACKGROUND"
+                            android:textSize="30sp"
+                            android:gravity="center"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/introduction"
+                            android:layout_marginTop="50dp"/>
+
+                        <TextView
+                            android:id="@+id/poemBackgrounds"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="This poem is generally believed to have been written by li bai when he first visited mount lushan on his way to jinling around 725 AD ."
+                            android:textSize="18sp"
+                            android:gravity="center"
+                            android:layout_centerHorizontal="true"
+                            android:layout_below="@+id/poem_background"
+                            android:layout_marginBottom="50dp"
+                            android:maxEms="17"/>
+
+
+                    </RelativeLayout>
+
+                </ScrollView>
+
+            </LinearLayout>
+
+        </com.example.sidebottom.SlideBottomLayout>
 
     </RelativeLayout>
-
 
 </LinearLayout>

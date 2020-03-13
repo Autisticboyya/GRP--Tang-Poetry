@@ -1,13 +1,14 @@
 package com.example.myapplication;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import static com.example.myapplication.poemsPage.Poems;
 
 public class poemPage extends AppCompatActivity {
 
@@ -18,6 +19,8 @@ public class poemPage extends AppCompatActivity {
     public static String kindOfPoem_pp;
     public static String chineseVersion_pp;
     public static String EnglishVersion_pp;
+    public static String webLink_pp;
+    public static String background_pp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -29,6 +32,13 @@ public class poemPage extends AppCompatActivity {
 
         TextView authorName = (TextView)findViewById(R.id.authorName);
         authorName.setText(authorName_pp);
+
+        TextView poemBackground = (TextView)findViewById(R.id.poemBackgrounds);
+        if(background_pp.equals("")){
+            poemBackground.setText("No background here!");
+        }else{
+            poemBackground.setText(background_pp);
+        }
 
         doWithChineseVersion();
 
@@ -45,6 +55,22 @@ public class poemPage extends AppCompatActivity {
                 doWithEnglishVersion();
             }
         });
+
+        Button btn_video = (Button)findViewById(R.id.show_video);
+        btn_video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(webLink_pp.equals("")){
+                    Toast.makeText(poemPage.this, "Sorry, this video isn't available yet~", Toast.LENGTH_LONG).show();
+                }else{
+                    String s = "https://www.bilibili.com/video/"+webLink_pp;
+                    Uri uri = Uri.parse(s);
+                    Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+                    startActivity(intent);
+                }
+            }
+        });
+
 
     }
 

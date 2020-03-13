@@ -3,17 +3,33 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-public class homePage extends AppCompatActivity {
+import com.example.greendao.DaoSession;
+import com.example.greendao.Poem;
+import com.example.greendao.PoemDao;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+public class homePage extends AppCompatActivity {
+    public static PoemDao poemDao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+
+        DaoSession daoSession = PoemList.getDaoSession();
+        poemDao = daoSession.getPoemDao();
+
+        initData();
+
 
         /**
          * goto game interface
@@ -46,7 +62,7 @@ public class homePage extends AppCompatActivity {
         btn_poems_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(homePage.this,poemsPage.class);
+                Intent intent = new Intent(homePage.this,chooseDifficulty.class);
                 startActivity(intent);
             }
         });
@@ -75,5 +91,30 @@ public class homePage extends AppCompatActivity {
             }
         });
     }
+    protected void initData() {
+        poemDao.deleteAll();
+        readFromFile();
+    }
 
+    private void readFromFile() {
+        AssetManager assetManager = getAssets();
+        try {
+            InputStream inputStream = assetManager.open("a.txt");
+            if (inputStream != null) {
+                InputStreamReader inputReader = new InputStreamReader(inputStream);
+                BufferedReader buffReader = new BufferedReader(inputReader);
+                String line;
+                //分行读取
+                buffReader.readLine();
+                while ((line = buffReader.readLine()) != null) {
+                    String[] strArr = line.split(":");
+                    Poem poem = new Poem(null,strArr[0],strArr[1],strArr[2],strArr[3],strArr[4],strArr[5],strArr[6],strArr[8],strArr[9],strArr[7],null,null);
+                    poemDao.insert(poem);
+                }
+                inputStream.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

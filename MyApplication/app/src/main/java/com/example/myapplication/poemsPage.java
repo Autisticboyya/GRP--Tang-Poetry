@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
@@ -18,19 +17,15 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.greendao.DaoSession;
 import com.example.greendao.Poem;
 import com.example.greendao.PoemDao;
 import com.example.sortrecyclerview.ClearEditText;
 import com.example.sortrecyclerview.SideBar;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.myapplication.homePage.poemDao;
 import static com.example.myapplication.poemPage.EnglishVersion_pp;
 import static com.example.myapplication.poemPage.chineseVersion_pp;
 import static com.example.myapplication.poemPage.poemName_pp;
@@ -38,31 +33,28 @@ import static com.example.myapplication.poemPage.authorName_pp;
 import static com.example.myapplication.poemPage.kindOfPoem_pp;
 import static com.example.myapplication.poemPage.poemNameEnglish_pp;
 import static com.example.myapplication.poemPage.authorNameEnglish_pp;
-
+import static com.example.myapplication.poemPage.webLink_pp;
+import static com.example.myapplication.poemPage.background_pp;
 
 public class poemsPage extends AppCompatActivity {
-    private PoemDao poemDao;
+
     private RecyclerView mRecyclerView;
     private HomeAdapter mAdapter;
     private LinearLayoutManager manager;
     public static List<Poem> Poems;
-    private List<Poem> Poems_middle;//存poem根据orderWay和kind改的中间值
+    private ClearEditText mClearEditText;
     private int orderWay = 1;//排列方式 1:根据诗名 2:作者名
     private String kind = "-1";
-    private ClearEditText mClearEditText;
-
-
+    public static String difficulty = "0";
+    private List<Poem> Poems_middle;//存poem根据orderWay和kind和difficulty改的中间值
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poems);
 
-        DaoSession daoSession = PoemList.getDaoSession();
-        poemDao = daoSession.getPoemDao();
-
-        initData();
         initView();
+        initButton();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         manager = new LinearLayoutManager(this);
@@ -70,18 +62,40 @@ public class poemsPage extends AppCompatActivity {
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.setAdapter(mAdapter = new HomeAdapter());
 
-        Poems = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).build().list();
-        Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).build().list();
 
+        if(difficulty.equals("0")){
+            Poems = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).build().list();
+            Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).build().list();
+        }else{
+            Poems = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).
+                    where(PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+            Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).
+                    where(PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+        }
+
+    }
+
+    private void initButton() {
         Button btn_orderByPoem = (Button)findViewById(R.id.orderByPoem);
         btn_orderByPoem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 orderWay = 1;
                 if(kind.equals("-1")){
-                    Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).build().list();
+                    if(difficulty.equals("0")){
+                        Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).build().list();
+                    }else{
+                        Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).
+                                where(PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+                    }
                 }else{
-                    Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).where(PoemDao.Properties.KindOfPoem.eq(kind)).build().list();
+                    if (difficulty.equals("0")){
+                        Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).
+                                where(PoemDao.Properties.KindOfPoem.eq(kind)).build().list();
+                    }else{
+                        Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).
+                                where(PoemDao.Properties.KindOfPoem.eq(kind),PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+                    }
                 }
                 mAdapter.updateList(Poems_middle);
             }
@@ -93,9 +107,20 @@ public class poemsPage extends AppCompatActivity {
             public void onClick(View v) {
                 orderWay = 2;
                 if(kind.equals("-1")){
-                    Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.AuthorNameEnglish).build().list();
+                    if(difficulty.equals("0")){
+                        Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.AuthorNameEnglish).build().list();
+                    }else{
+                        Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.AuthorNameEnglish).
+                                where(PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+                    }
                 }else{
-                    Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.AuthorNameEnglish).where(PoemDao.Properties.KindOfPoem.eq(kind)).build().list();
+                    if (difficulty.equals("0")){
+                        Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.AuthorNameEnglish).
+                                where(PoemDao.Properties.KindOfPoem.eq(kind)).build().list();
+                    }else{
+                        Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.AuthorNameEnglish).
+                                where(PoemDao.Properties.KindOfPoem.eq(kind),PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+                    }
                 }
                 mAdapter.updateList(Poems_middle);
             }
@@ -152,38 +177,15 @@ public class poemsPage extends AppCompatActivity {
             public void onClick(View v) {
                 kind = "-1";
                 orderWay = 1;
-                Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).build().list();
+                if(difficulty.equals("0")){
+                    Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).build().list();
+                }else{
+                    Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).
+                            where(PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+                }
                 mAdapter.updateList(Poems_middle);
             }
         });
-
-    }
-
-    protected void initData() {
-        poemDao.deleteAll();
-        readFromFile();
-    }
-
-    private void readFromFile() {
-        AssetManager assetManager = getAssets();
-        try {
-            InputStream inputStream = assetManager.open("a.txt");
-            if (inputStream != null) {
-                InputStreamReader inputReader = new InputStreamReader(inputStream);
-                BufferedReader buffReader = new BufferedReader(inputReader);
-                String line;
-                //分行读取
-                buffReader.readLine();
-                while ((line = buffReader.readLine()) != null) {
-                    String[] strArr = line.split(":");
-                    Poem poem = new Poem(null,strArr[0],strArr[1],strArr[2],strArr[3],strArr[4],strArr[5],strArr[6],null,null);
-                    poemDao.insert(poem);
-                }
-                inputStream.close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private void initView() {
@@ -293,11 +295,21 @@ public class poemsPage extends AppCompatActivity {
 
     private void changeConditionInPoems(String kind) {
         if(orderWay == 1){
-            Poems_middle = poemDao.queryBuilder().where(PoemDao.Properties.KindOfPoem.eq(kind)).orderAsc(PoemDao.Properties.PoemNameEnglish).build().list();
+            if(difficulty.equals("0")){
+                Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).
+                        where(PoemDao.Properties.KindOfPoem.eq(kind)).build().list();
+            }else{
+                Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).
+                        where(PoemDao.Properties.KindOfPoem.eq(kind),PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+            }
         }else if(orderWay == 2){
-            Poems_middle = poemDao.queryBuilder().where(PoemDao.Properties.KindOfPoem.eq(kind)).orderAsc(PoemDao.Properties.AuthorNameEnglish).build().list();
-        }else{
-            Poems_middle = poemDao.queryBuilder().where(PoemDao.Properties.KindOfPoem.eq(kind)).build().list();
+            if(difficulty.equals("0")){
+                Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.AuthorNameEnglish).
+                        where(PoemDao.Properties.KindOfPoem.eq(kind)).build().list();
+            }else{
+                Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.AuthorNameEnglish).
+                        where(PoemDao.Properties.KindOfPoem.eq(kind),PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+            }
         }
         mAdapter.updateList(Poems_middle);
     }
@@ -351,12 +363,14 @@ public class poemsPage extends AppCompatActivity {
                     startActivity(intent);
                     //传值到poem.xml
                     poemName_pp = Poems.get(position).getPoemName();
+                    webLink_pp = Poems.get(position).getWebLink();
                     poemNameEnglish_pp = Poems.get(position).getPoemNameEnglish();
                     authorName_pp = Poems.get(position).getAuthorName();
                     authorNameEnglish_pp = Poems.get(position).getAuthorNameEnglish();
                     kindOfPoem_pp = Poems.get(position).getKindOfPoem();
                     chineseVersion_pp = Poems.get(position).getChineseVersion();
                     EnglishVersion_pp = Poems.get(position).getEnglishVersion();
+                    background_pp = Poems.get(position).getPoemBackground();
                 }
             });
         }

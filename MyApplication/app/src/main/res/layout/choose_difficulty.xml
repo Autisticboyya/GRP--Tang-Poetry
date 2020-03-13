@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@mipmap/back_to_previous"
+            android:onClick="back_to_main"
+            android:contentDescription="@string/back"/>
+
+
+        <Button
+            android:id="@+id/easy_mode"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:text="easy mode"
+            android:layout_above="@+id/middle_mode"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"/>
+
+        <Button
+            android:id="@+id/middle_mode"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:text="middle mode" />
+
+
+        <Button
+            android:id="@+id/hell_mode"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:text="hell mode"
+            android:layout_below="@+id/middle_mode"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"/>
+
+        <Button
+            android:id="@+id/show_all_poem"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:text="show all poems"
+            android:layout_below="@+id/hell_mode"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

@@ -10,9 +10,13 @@ import org.greenrobot.greendao.annotation.Property;
 public class Poem {
     @Id
     private Long id;
+    @Property(nameInDb = "difficulty")
+    private String difficulty;
     @Property(nameInDb = "poemName")
     private String poemName;
     @Property(nameInDb = "poemNameEnglish")
+    private String webLink;
+    @Property(nameInDb = "webLink")
     private String poemNameEnglish;
     @Property(nameInDb = "authorName")
     private String authorName;
@@ -24,21 +28,27 @@ public class Poem {
     private String chineseVersion;
     @Property(nameInDb = "EnglishVersion")
     private String EnglishVersion;
+    @Property(nameInDb = "poemBackground")
+    private String poemBackground;
     private String poemNameHtml;
     private String authorNameHtml;
 
-    @Generated(hash = 1476214554)
-    public Poem(Long id, String poemName, String poemNameEnglish, String authorName,
-            String authorNameEnglish, String kindOfPoem, String chineseVersion,
-            String EnglishVersion, String poemNameHtml, String authorNameHtml) {
+    @Generated(hash = 1729531821)
+    public Poem(Long id, String difficulty, String poemName, String webLink,
+            String poemNameEnglish, String authorName, String authorNameEnglish,
+            String kindOfPoem, String chineseVersion, String EnglishVersion,
+            String poemBackground, String poemNameHtml, String authorNameHtml) {
         this.id = id;
+        this.difficulty = difficulty;
         this.poemName = poemName;
+        this.webLink = webLink;
         this.poemNameEnglish = poemNameEnglish;
         this.authorName = authorName;
         this.authorNameEnglish = authorNameEnglish;
         this.kindOfPoem = kindOfPoem;
         this.chineseVersion = chineseVersion;
         this.EnglishVersion = EnglishVersion;
+        this.poemBackground = poemBackground;
         this.poemNameHtml = poemNameHtml;
         this.authorNameHtml = authorNameHtml;
     }
@@ -104,6 +114,24 @@ public class Poem {
     }
     public void setAuthorNameHtml(String authorNameHtml) {
         this.authorNameHtml = authorNameHtml;
+    }
+    public String getDifficulty() {
+        return this.difficulty;
+    }
+    public void setDifficulty(String difficulty) {
+        this.difficulty = difficulty;
+    }
+    public String getWebLink() {
+        return this.webLink;
+    }
+    public void setWebLink(String webLink) {
+        this.webLink = webLink;
+    }
+    public String getPoemBackground() {
+        return this.poemBackground;
+    }
+    public void setPoemBackground(String poemBackground) {
+        this.poemBackground = poemBackground;
     }
 
 }
