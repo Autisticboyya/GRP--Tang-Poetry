@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
+import com.example.greendao.Author;
+import com.example.greendao.AuthorDao;
 import com.example.greendao.DaoSession;
 import com.example.greendao.Poem;
 import com.example.greendao.PoemDao;
@@ -20,6 +22,7 @@ import java.io.InputStreamReader;
 
 public class homePage extends AppCompatActivity {
     public static PoemDao poemDao;
+    public static AuthorDao authorDao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,7 @@ public class homePage extends AppCompatActivity {
 
         DaoSession daoSession = PoemList.getDaoSession();
         poemDao = daoSession.getPoemDao();
+        authorDao = daoSession.getAuthorDao();
 
         initData();
 
@@ -93,10 +97,34 @@ public class homePage extends AppCompatActivity {
     }
     protected void initData() {
         poemDao.deleteAll();
-        readFromFile();
+        readPoemsFromFile();
+        readAuthorFromFile();
     }
 
-    private void readFromFile() {
+    private void readAuthorFromFile() {
+        AssetManager assetManager = getAssets();
+        try {
+            InputStream inputStream = assetManager.open("author_introduction.txt");
+            if (inputStream != null) {
+                InputStreamReader inputReader = new InputStreamReader(inputStream);
+                BufferedReader buffReader = new BufferedReader(inputReader);
+                String line;
+                //分行读取
+                buffReader.readLine();
+                while ((line = buffReader.readLine()) != null) {
+                    String[] strArr = line.split(":");
+                    Author author = new Author(strArr[0],strArr[1]);
+                    authorDao.insert(author);
+                }
+                inputStream.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void readPoemsFromFile() {
         AssetManager assetManager = getAssets();
         try {
             InputStream inputStream = assetManager.open("a.txt");

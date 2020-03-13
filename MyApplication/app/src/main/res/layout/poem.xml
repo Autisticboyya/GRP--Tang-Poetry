@@ -208,7 +208,7 @@
                             android:layout_centerHorizontal="true"/>
 
                         <ImageView
-                            android:id="@+id/Lee_Bai"
+                            android:id="@+id/Author_image"
                             android:layout_width="150dp"
                             android:layout_height="150dp"
                             android:layout_below="@+id/introduction_title"
@@ -219,9 +219,9 @@
                             android:id="@+id/introduction"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/Lee_Bai"
+                            android:layout_below="@+id/Author_image"
                             android:layout_centerHorizontal="true"
-                            android:text="Li bai (701-762), styled taibai, also known as qinglian jushi, also known as 'exiled immortal', was a great romantic poet of the tang dynasty, known as 'poetic immortal' by later generations. According to the new tang book 'records, li bai xing SAN for the emperor (cool Wu Zhaowang Gao lee) ix, sun and Li Tang Wang Tongzong. He is generous, love to drink and write poetry, like to make friends."
+                            android:text="Sorry, this database does not have this author~"
                             android:gravity="center"
                             android:textSize="18sp"
                             android:maxEms="17"/>

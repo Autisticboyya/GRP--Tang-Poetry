@@ -5,10 +5,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.greendao.Author;
+
+import java.util.List;
+
+import static com.example.myapplication.homePage.authorDao;
 
 public class poemPage extends AppCompatActivity {
 
@@ -22,10 +29,13 @@ public class poemPage extends AppCompatActivity {
     public static String webLink_pp;
     public static String background_pp;
 
+    private List<Author> Authors;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poem);
+        Authors = authorDao.loadAll();
 
         TextView poemName = (TextView)findViewById(R.id.poemName);
         poemName.setText(poemName_pp);
@@ -39,6 +49,32 @@ public class poemPage extends AppCompatActivity {
         }else{
             poemBackground.setText(background_pp);
         }
+
+        TextView author_introduction = (TextView)findViewById(R.id.introduction);
+        for(Author author:Authors){
+            if(author.getAuthorNameEnglish().equals(authorNameEnglish_pp)){
+                author_introduction.setText(author.getAuthorBriefIntroduction());
+                break;
+            }
+        }
+
+        ImageView Author_image = (ImageView)findViewById(R.id.Author_image);
+        switch(authorNameEnglish_pp){
+            case "Lee Bai":
+                Author_image.setImageResource(R.drawable.li_bai);
+                break;
+            case "Meng Haoran":
+                Author_image.setImageResource(R.drawable.meng_haoran);
+                break;
+            case "Lu Lun":
+                Author_image.setImageResource(R.drawable.lu_lun);
+                break;
+            default:
+                Author_image.setImageResource(R.drawable.emotionstore_progresscancelbtn);
+                break;
+        }
+
+
 
         doWithChineseVersion();
 
