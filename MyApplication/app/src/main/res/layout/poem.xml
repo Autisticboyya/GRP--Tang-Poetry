@@ -213,7 +213,7 @@
                             android:layout_height="150dp"
                             android:layout_below="@+id/introduction_title"
                             android:layout_centerHorizontal="true"
-                            app:srcCompat="@drawable/li_bai" />
+                            app:srcCompat="@drawable/emotionstore_progresscancelbtn" />
 
                         <TextView
                             android:id="@+id/introduction"
@@ -241,7 +241,6 @@
                             android:id="@+id/poemBackgrounds"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="This poem is generally believed to have been written by li bai when he first visited mount lushan on his way to jinling around 725 AD ."
                             android:textSize="18sp"
                             android:gravity="center"
                             android:layout_centerHorizontal="true"

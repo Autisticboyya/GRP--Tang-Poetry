@@ -1,20 +1,16 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
-
 import com.example.greendao.Author;
 import com.example.greendao.AuthorDao;
 import com.example.greendao.DaoSession;
 import com.example.greendao.Poem;
 import com.example.greendao.PoemDao;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,6 +24,7 @@ public class homePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
+        //读取数据库
         DaoSession daoSession = PoemList.getDaoSession();
         poemDao = daoSession.getPoemDao();
         authorDao = daoSession.getAuthorDao();
@@ -95,10 +92,14 @@ public class homePage extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * 初始化诗歌 和 作者 的信息
+     */
     protected void initData() {
-        poemDao.deleteAll();
-        readPoemsFromFile();
-        readAuthorFromFile();
+        poemDao.deleteAll(); //删除所有数据库之前存的信息
+        readPoemsFromFile(); //读取诗歌信息
+        readAuthorFromFile(); //读取作者信息
     }
 
     private void readAuthorFromFile() {

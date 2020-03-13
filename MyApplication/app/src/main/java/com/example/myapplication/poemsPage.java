@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,7 +20,6 @@ import com.example.greendao.Poem;
 import com.example.greendao.PoemDao;
 import com.example.sortrecyclerview.ClearEditText;
 import com.example.sortrecyclerview.SideBar;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,6 +73,9 @@ public class poemsPage extends AppCompatActivity {
 
     }
 
+    /**
+     * 初始化所有的按钮
+     */
     private void initButton() {
         Button btn_orderByPoem = (Button)findViewById(R.id.orderByPoem);
         btn_orderByPoem.setOnClickListener(new View.OnClickListener() {
@@ -188,6 +189,9 @@ public class poemsPage extends AppCompatActivity {
         });
     }
 
+    /**
+     * 初始化除按钮外的所有控件
+     */
     private void initView() {
         SideBar sideBar = (SideBar) findViewById(R.id.sideBar);
         TextView dialog = (TextView) findViewById(R.id.dialog);
@@ -241,13 +245,17 @@ public class poemsPage extends AppCompatActivity {
 
     }
 
+    /**
+     *  根据搜索框中的字符串筛选符合条件的
+     * @param filterStr 搜索框里的字符串
+     */
     private void filterData(String filterStr) {
         List<Poem> filterDateList = new ArrayList<>();
         List<Poem> filter = Poems_middle;
 
         System.out.println(filterStr);
 
-        //按搜索键之后若为空 则重置
+        //按搜索键之后若为空 则重置 即删除所有的html格式
         if(TextUtils.isEmpty(filterStr)) {
             filterDateList = filter;
             for (Poem poem : filter) {
@@ -262,37 +270,30 @@ public class poemsPage extends AppCompatActivity {
             for(Poem poem:filter){
                 String poemName = poem.getPoemNameEnglish();
                 String authorName = poem.getAuthorNameEnglish();
-                /**
-                 * ToDo... 优化
-                 */
-                //只在诗名中包含
-                if(poemName.toLowerCase().contains(filterStr.toLowerCase()) && !authorName.toLowerCase().contains(filterStr.toLowerCase())){
-                    int index = poemName.toLowerCase().indexOf(filterStr.toLowerCase());
-                    int length = filterStr.length();
-                    poem.setPoemNameHtml(poemName.substring(0,index) + "<font color='#f08519'><b>" + poemName.substring(index,index+length) + "</b></font>" + poemName.substring(index+length));
-                    filterDateList.add(poem);
-                    //只在作者名中包含
-                }else if(authorName.toLowerCase().contains(filterStr.toLowerCase()) && !poemName.toLowerCase().contains(filterStr.toLowerCase())){
-                    int index = authorName.toLowerCase().indexOf(filterStr.toLowerCase());
-                    int length = filterStr.length();
-                    poem.setAuthorNameHtml(authorName.substring(0,index) + "<font color='#f08519'><b>" + authorName.substring(index,index+length) + "</b></font>" + authorName.substring(index+length));
-                    filterDateList.add(poem);
-                }else if(authorName.toLowerCase().contains(filterStr.toLowerCase()) && poemName.toLowerCase().contains(filterStr.toLowerCase())){
+
+                //在诗名或作者名中包含
+                if(authorName.toLowerCase().contains(filterStr.toLowerCase()) || poemName.toLowerCase().contains(filterStr.toLowerCase())){
                     int length = filterStr.length();
                     int index1 = poemName.toLowerCase().indexOf(filterStr.toLowerCase());
                     int index2 = authorName.toLowerCase().indexOf(filterStr.toLowerCase());
-                    poem.setPoemNameHtml(poemName.substring(0,index1) + "<font color='#f08519'><b>" + poemName.substring(index1,index1+length) + "</b></font>" + poemName.substring(index1+length));
-                    poem.setAuthorNameHtml(authorName.substring(0,index2) + "<font color='#f08519'><b>" + authorName.substring(index2,index2+length) + "</b></font>" + authorName.substring(index2+length));
+                    if(index1 != -1){
+                        poem.setPoemNameHtml(poemName.substring(0,index1) + "<font color='#f08519'><b>" + poemName.substring(index1,index1+length) + "</b></font>" + poemName.substring(index1+length));
+                    }
+                    if(index2 != -1){
+                        poem.setAuthorNameHtml(authorName.substring(0,index2) + "<font color='#f08519'><b>" + authorName.substring(index2,index2+length) + "</b></font>" + authorName.substring(index2+length));
+                    }
                     filterDateList.add(poem);
                 }
             }
         }
-
-
         mAdapter.updateList(filterDateList);
 
     }
 
+    /**
+     * 根据难度 种类 排列方法 筛选诗
+     * @param kind 诗的种类
+     */
     private void changeConditionInPoems(String kind) {
         if(orderWay == 1){
             if(difficulty.equals("0")){
@@ -314,6 +315,9 @@ public class poemsPage extends AppCompatActivity {
         mAdapter.updateList(Poems_middle);
     }
 
+    /**
+     * Recyclerview 的适配器
+     */
     class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> {
 
         @NonNull

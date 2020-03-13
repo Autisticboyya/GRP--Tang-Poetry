@@ -35,6 +35,12 @@ public class poemPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.poem);
+
+
+        /**
+         * 王的part
+         */
+        //读取所有作者的信息
         Authors = authorDao.loadAll();
 
         TextView poemName = (TextView)findViewById(R.id.poemName);
@@ -43,13 +49,17 @@ public class poemPage extends AppCompatActivity {
         TextView authorName = (TextView)findViewById(R.id.authorName);
         authorName.setText(authorName_pp);
 
+        doWithChineseVersion();
+
+        //根据诗写诗的背景
         TextView poemBackground = (TextView)findViewById(R.id.poemBackgrounds);
         if(background_pp.equals("")){
-            poemBackground.setText("No background here!");
+            poemBackground.setText("Sorry,No background yet~");
         }else{
             poemBackground.setText(background_pp);
         }
 
+        //根据得到的作者英文名设置作者简介
         TextView author_introduction = (TextView)findViewById(R.id.introduction);
         for(Author author:Authors){
             if(author.getAuthorNameEnglish().equals(authorNameEnglish_pp)){
@@ -58,6 +68,7 @@ public class poemPage extends AppCompatActivity {
             }
         }
 
+        //根据得到的作者英文名设置作者照片
         ImageView Author_image = (ImageView)findViewById(R.id.Author_image);
         switch(authorNameEnglish_pp){
             case "Lee Bai":
@@ -75,9 +86,7 @@ public class poemPage extends AppCompatActivity {
         }
 
 
-
-        doWithChineseVersion();
-
+        //点击展示英语翻译
         Button btn_translate = (Button)findViewById(R.id.translate);
         btn_translate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +101,7 @@ public class poemPage extends AppCompatActivity {
             }
         });
 
+        //点击之后 如果有视频就跳转 没有就给toast
         Button btn_video = (Button)findViewById(R.id.show_video);
         btn_video.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +109,7 @@ public class poemPage extends AppCompatActivity {
                 if(webLink_pp.equals("")){
                     Toast.makeText(poemPage.this, "Sorry, this video isn't available yet~", Toast.LENGTH_LONG).show();
                 }else{
-                    String s = "https://www.bilibili.com/video/"+webLink_pp;
+                    String s = "https://www.bilibili.com/video/" + webLink_pp;
                     Uri uri = Uri.parse(s);
                     Intent intent = new Intent(Intent.ACTION_VIEW,uri);
                     startActivity(intent);
