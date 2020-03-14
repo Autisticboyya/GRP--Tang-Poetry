@@ -13,4 +13,7 @@
     <string name="game">GAME</string>
     <string name="me">me</string>
     <string name="setting">setting</string>
+    <string name="poems_list">Poems List</string>
+    <string name="authorname">AuthorName</string>
+    <string name="poemname">PoemName</string>
 </resources>

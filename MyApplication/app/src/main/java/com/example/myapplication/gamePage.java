@@ -65,11 +65,23 @@ public class gamePage extends AppCompatActivity {
         /**
          * goto poem_river game
          */
-        Button btn_poem_river = (Button)findViewById(R.id.apple_tree);
+        Button btn_poem_river = (Button)findViewById(R.id.game_story);
         btn_poem_river.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(gamePage.this,poemRiver.class);
+                Intent intent = new Intent(gamePage.this,gameStoryPage.class);
+                startActivity(intent);
+            }
+        });
+
+        /**
+         * goto exercise game
+         */
+        Button btn_exercise = (Button)findViewById(R.id.exercise);
+        btn_exercise.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(gamePage.this,exercisePage.class);
                 startActivity(intent);
             }
         });

@@ -1,6 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="559dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="42dp"
+            android:text="Question 1"
+            android:textSize="36sp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/questionSentence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_alignParentLeft="false"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="1dp"
+            android:text="床前 _1 _  _2_ 光，\n疑似地上 _3_ 。"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/tree"
+            android:layout_width="298dp"
+            android:layout_height="350dp"
+            android:layout_below="@+id/questionSentence"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="0dp"
+            app:srcCompat="@drawable/game1_tree" />
+
+        <Button
+            android:id="@+id/index1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignStart="@+id/tree"
+            android:layout_alignLeft="@+id/tree"
+            android:layout_alignBottom="@+id/tree"
+            android:layout_marginStart="58dp"
+            android:layout_marginLeft="58dp"
+            android:layout_marginBottom="226dp"
+            android:background="#FFFFFF"
+            android:text="1"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/index2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignStart="@+id/tree"
+            android:layout_alignLeft="@+id/tree"
+            android:layout_alignBottom="@+id/tree"
+            android:layout_marginStart="111dp"
+            android:layout_marginLeft="111dp"
+            android:layout_marginBottom="147dp"
+            android:background="#FFFFFF"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/index3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignStart="@+id/tree"
+            android:layout_alignLeft="@+id/tree"
+            android:layout_alignBottom="@+id/tree"
+            android:layout_marginStart="191dp"
+            android:layout_marginLeft="191dp"
+            android:layout_marginBottom="211dp"
+            android:background="#FFFFFF"
+            android:text="3" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:orientation="horizontal"
+        android:paddingLeft="@android:dimen/app_icon_size">
+
+        <Button
+            android:id="@+id/word2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="-1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="-90dp"
+            android:background="@drawable/game1_apple"
+            android:text="月"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/word1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="82dp"
+            android:layout_marginLeft="82dp"
+            android:layout_marginBottom="-90dp"
+            android:background="@drawable/game1_apple"
+            android:text="明"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/word3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="82dp"
+            android:layout_marginLeft="82dp"
+            android:layout_marginBottom="-90dp"
+            android:background="@drawable/game1_apple"
+            android:text="霜"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/quit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="22dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:phoneNumber="false"
+        android:text="@string/game"
+        android:textSize="24sp" />
 
 </LinearLayout>
