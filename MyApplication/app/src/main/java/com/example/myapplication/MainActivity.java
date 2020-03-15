@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity{
     private homePage hp = new homePage();
     private gamePage gp = new gamePage();
     private personalCenterPage pcp = new personalCenterPage();
-    int mFlag;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,23 +62,21 @@ public class MainActivity extends AppCompatActivity{
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        mFlag = intent.getIntExtra("flag",-1);
-        checkModule(mFlag);
-    }
-
-    public void checkModule(int position){
-        switch (position){
-            case 0:
-                txt_home.performClick();
-                break;
-            case 1:
-                txt_game.performClick();
-                break;
-            case 2:
-                txt_me.performClick();
-                break;
-            default:
-                break;
+        String fragFlag = intent.getStringExtra("fragFlag");
+        if(!TextUtils.isEmpty(fragFlag)){
+            if("1".equals(fragFlag)){
+                setSelected();
+                txt_home.setSelected(true);
+                showFragment(hp);
+            }else if("2".equals(fragFlag)){
+                setSelected();
+                txt_game.setSelected(true);
+                showFragment(gp);
+            }else{
+                setSelected();
+                txt_me.setSelected(true);
+                showFragment(pcp);
+            }
         }
     }
 
