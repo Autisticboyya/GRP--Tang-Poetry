@@ -2,50 +2,30 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
-public class homePage extends AppCompatActivity  {
+public class homePage extends Fragment {
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
-
-        /**
-         * goto game interface
-         */
-        Button btn_game = (Button)findViewById(R.id.game);
-        btn_game.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(homePage.this,gamePage.class);
-                startActivity(intent);
-            }
-        });
-
-        /**
-         * goto me interface
-         */
-        Button btn_me = (Button)findViewById(R.id.me);
-        btn_me.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(homePage.this,personalCenterPage.class);
-                startActivity(intent);
-            }
-        });
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.home,container,false);
 
         /**
          * goto poems list interface
          */
-        Button btn_poems_list = (Button)findViewById(R.id.viewing_poems);
+        Button btn_poems_list = view.findViewById(R.id.viewing_poems);
         btn_poems_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(homePage.this,poemsPage.class);
+                Intent intent = new Intent(getActivity(),poemsPage.class);
                 startActivity(intent);
             }
         });
@@ -53,11 +33,11 @@ public class homePage extends AppCompatActivity  {
         /**
          * goto daily poetry interface
          */
-        Button btn_daily_poetry = (Button)findViewById(R.id.daily_poetry);
+        Button btn_daily_poetry = view.findViewById(R.id.daily_poetry);
         btn_daily_poetry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(homePage.this,dailyPoetryPage.class);
+                Intent intent = new Intent(getActivity(),dailyPoetryPage.class);
                 startActivity(intent);
             }
         });
@@ -65,14 +45,14 @@ public class homePage extends AppCompatActivity  {
         /**
          * goto user guide interface
          */
-        Button btn_user_guide = (Button)findViewById(R.id.user_guide);
+        Button btn_user_guide = view.findViewById(R.id.user_guide);
         btn_user_guide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(homePage.this,userGuidePage.class);
+                Intent intent = new Intent(getActivity(),userGuidePage.class);
                 startActivity(intent);
             }
         });
+        return view;
     }
-
 }

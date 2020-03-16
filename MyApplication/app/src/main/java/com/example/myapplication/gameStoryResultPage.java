@@ -34,39 +34,18 @@ public class gameStoryResultPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game_story_result);
 
-        /**
-         * goto home page
-         */
-        Button btn_home = (Button)findViewById(R.id.home);
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(gameStoryResultPage.this,homePage.class);
-                startActivity(intent);
-            }
-        });
 
         /**
          * goto game interface
          */
-        Button btn_game = (Button)findViewById(R.id.game);
+        Button btn_game = (Button)findViewById(R.id.backToGame);
         btn_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(gameStoryResultPage.this,gamePage.class);
+                Intent intent = new Intent(gameStoryResultPage.this,MainActivity.class);
+                intent.putExtra("fragFlag","2");
                 startActivity(intent);
-            }
-        });
-
-        /**
-         * goto me interface
-         */
-        Button btn_me = (Button)findViewById(R.id.me);
-        btn_me.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(gameStoryResultPage.this,personalCenterPage.class);
-                startActivity(intent);
+                finish();
             }
         });
 
@@ -113,8 +92,8 @@ public class gameStoryResultPage extends AppCompatActivity {
         String ending = script.getContent();
         String[] strArr = ending.split("\\*");
         result.setText(strArr[0] + "\n" +
-                       strArr[1] + "\n"+
-                       strArr[2]);
+                strArr[1] + "\n"+
+                strArr[2]);
     }
 
     /**
@@ -122,7 +101,7 @@ public class gameStoryResultPage extends AppCompatActivity {
      */
     private void setStory(){
         if(script.getRole().equalsIgnoreCase("good ending1")
-        ||script.getRole().equalsIgnoreCase("bad ending1")){
+                ||script.getRole().equalsIgnoreCase("bad ending1")){
             story.setText("The whole stroy:\n" +
                     "Tang Xuanzong Tianbao early years, Li Bai recommended by Taoist priest Wu Yun, by Tang Xuanzong recruited into Beijing, Li Bai for the sacrifice of the hanlin.\n" +
                     "Soon after, due to the slander of the powerful, in the third year of Tianbao (744), Li Bai was forced out of Beijing.\n" +

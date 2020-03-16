@@ -2,50 +2,29 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
-public class personalCenterPage extends AppCompatActivity {
+public class personalCenterPage extends Fragment {
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.personal_center);
-
-        /**
-         * goto home page
-         */
-        Button btn_home = (Button)findViewById(R.id.home);
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(personalCenterPage.this,homePage.class);
-                startActivity(intent);
-            }
-        });
-
-        /**
-         * goto game interface
-         */
-        Button btn_game = (Button)findViewById(R.id.game);
-        btn_game.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(personalCenterPage.this,gamePage.class);
-                startActivity(intent);
-            }
-        });
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.personal_center,container,false);
         /**
          * goto setting interface
          */
-        Button btn_setting = (Button)findViewById(R.id.setting);
+        Button btn_setting = view.findViewById(R.id.setting);
         btn_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(personalCenterPage.this,settingPage.class);
+                Intent intent = new Intent(getActivity(),settingPage.class);
                 startActivity(intent);
             }
         });
@@ -53,11 +32,11 @@ public class personalCenterPage extends AppCompatActivity {
         /**
          * goto favourite interface
          */
-        Button btn_favourite = (Button)findViewById(R.id.favourite);
+        Button btn_favourite = view.findViewById(R.id.favourite);
         btn_favourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(personalCenterPage.this,favouritePage.class);
+                Intent intent = new Intent(getActivity(),favouritePage.class);
                 startActivity(intent);
             }
         });
@@ -65,19 +44,14 @@ public class personalCenterPage extends AppCompatActivity {
         /**
          * goto download interface
          */
-        Button btn_download = (Button)findViewById(R.id.download);
+        Button btn_download = view.findViewById(R.id.download);
         btn_download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(personalCenterPage.this,downloadPage.class);
+                Intent intent = new Intent(getActivity(),downloadPage.class);
                 startActivity(intent);
             }
         });
-
-
+        return view;
     }
-
-
-
-
 }

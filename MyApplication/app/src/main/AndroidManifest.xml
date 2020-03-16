@@ -9,63 +9,55 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:name=".PoemList"
-        android:theme="@style/AppTheme">
-        <activity android:name=".homePage">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".homePage"></activity>
 
-        <activity android:name=".personalCenterPage">
+        <activity android:name=".personalCenterPage"></activity>
 
-        </activity>
+        <activity android:name=".settingPage"></activity>
 
-        <activity android:name=".settingPage">
+        <activity android:name=".gamePage"></activity>
 
-        </activity>
+        <activity android:name=".favouritePage"></activity>
 
-        <activity android:name=".gamePage">
+        <activity android:name=".downloadPage"></activity>
 
-        </activity>
+        <activity android:name=".poemsPage"></activity>
 
-        <activity android:name=".favouritePage">
+        <activity android:name=".dailyPoetryPage"></activity>
 
-        </activity>
+        <activity android:name=".userGuidePage"></activity>
 
-        <activity android:name=".downloadPage">
+        <activity android:name=".exercisePage"></activity>
 
-        </activity>
+        <activity android:name=".exerciseResultPage"></activity>
 
-        <activity android:name=".poemsPage">
+        <activity android:name=".exerciseWrongPage"></activity>
 
-        </activity>
+        <activity android:name=".gameStoryPage"></activity>
 
-        <activity android:name=".dailyPoetryPage">
+        <activity android:name=".gameStoryResultPage"></activity>
 
-        </activity>
+        <activity android:name=".AppleTree"></activity>
+        <activity android:name=".Question1"/>
+        <activity android:name=".Question2"/>
+        <activity android:name=".Question3"/>
+        <activity android:name=".Question4"/>
+        <activity android:name=".Question5"/>
+        <activity android:name=".Question6"/>
+        <activity android:name=".Question7"/>
+        <activity android:name=".Question8"/>
+        <activity android:name=".Question9"/>
+        <activity android:name=".Congratulation"/>
 
-        <activity android:name=".userGuidePage">
-
-        </activity>
-
-        <activity android:name=".exercisePage">
-
-        </activity>
-
-        <activity android:name=".exerciseResultPage">
-
-        </activity>
-        <activity android:name=".exerciseWrongPage">
-
-        </activity>
-        <activity android:name=".gameStoryPage">
-
-        </activity>
-        <activity android:name=".gameStoryResultPage">
-
-        </activity>
     </application>
 
 </manifest>

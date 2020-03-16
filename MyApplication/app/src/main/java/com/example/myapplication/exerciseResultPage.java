@@ -88,41 +88,18 @@ public class exerciseResultPage extends AppCompatActivity {
         });
 
         /**
-         * goto home page
+         * goto view all the questions page
          */
-        Button btn_home = (Button)findViewById(R.id.home);
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(exerciseResultPage.this,homePage.class);
-                startActivity(intent);
-            }
-        });
-
-        /**
-         * goto game interface
-         */
-        Button btn_game = (Button)findViewById(R.id.game);
+        Button btn_game = (Button)findViewById(R.id.btn_game);
         btn_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(exerciseResultPage.this,gamePage.class);
+                Intent intent = new Intent(exerciseResultPage.this,MainActivity.class);
+                intent.putExtra("fragFlag","2");
                 startActivity(intent);
+                finish();
             }
         });
-
-        /**
-         * goto me interface
-         */
-        Button btn_me = (Button)findViewById(R.id.me);
-        btn_me.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(exerciseResultPage.this,personalCenterPage.class);
-                startActivity(intent);
-            }
-        });
-
 
     }
 }

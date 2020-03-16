@@ -20,8 +20,10 @@ public class favouritePage extends AppCompatActivity {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(favouritePage.this,homePage.class);
+                Intent intent = new Intent(favouritePage.this,MainActivity.class);
+                intent.putExtra("fragFlag","1");
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -32,8 +34,10 @@ public class favouritePage extends AppCompatActivity {
         btn_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(favouritePage.this,gamePage.class);
+                Intent intent = new Intent(favouritePage.this,MainActivity.class);
+                intent.putExtra("fragFlag","2");
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -44,8 +48,10 @@ public class favouritePage extends AppCompatActivity {
         btn_me.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(favouritePage.this,personalCenterPage.class);
+                Intent intent = new Intent(favouritePage.this,MainActivity.class);
+                intent.putExtra("fragFlag","3");
                 startActivity(intent);
+                finish();
             }
         });
 

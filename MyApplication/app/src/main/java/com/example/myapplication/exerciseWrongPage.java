@@ -54,8 +54,10 @@ public class exerciseWrongPage extends AppCompatActivity {
         btn_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(exerciseWrongPage.this, gamePage.class);
+                Intent intent = new Intent(exerciseWrongPage.this,MainActivity.class);
+                intent.putExtra("fragFlag","2");
                 startActivity(intent);
+                finish();
             }
         });
 

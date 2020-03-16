@@ -26,13 +26,13 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="27dp">
+        android:layout_height="45dp">
 
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="112dp">
+        android:layout_height="168dp">
 
         <Button
             android:id="@+id/btn_tryagain"
@@ -41,6 +41,15 @@
             android:layout_gravity="center|top"
             android:gravity="center"
             android:text="try again"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/backToGame"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="backToGame"
             android:textSize="18sp" />
 
         <Button
@@ -62,7 +71,7 @@
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="211dp"
+        android:layout_height="228dp"
         android:background="#DEDDDF">
 
         <LinearLayout
@@ -79,33 +88,5 @@
                 android:textSize="14sp" />
         </LinearLayout>
     </ScrollView>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/home"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/home" />
-
-        <Button
-            android:id="@+id/game"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/game" />
-
-        <Button
-            android:id="@+id/me"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/me" />
-
-    </LinearLayout>
 
 </LinearLayout>

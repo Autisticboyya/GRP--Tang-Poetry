@@ -68,8 +68,10 @@ public class gameStoryPage extends AppCompatActivity {
         btn_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(gameStoryPage.this,gamePage.class);
+                Intent intent = new Intent(gameStoryPage.this,MainActivity.class);
+                intent.putExtra("fragFlag","2");
                 startActivity(intent);
+                finish();
             }
         });
 

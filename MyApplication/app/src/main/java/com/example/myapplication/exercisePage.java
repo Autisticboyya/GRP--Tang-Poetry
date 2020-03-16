@@ -31,7 +31,9 @@ import java.util.List;
  * Main exercise page;
  * Display exercise question and options.
  */
+
 public class exercisePage extends AppCompatActivity {
+
     private QuestionDao questionDao;
 
     private int count; //the number of exercise questions
@@ -61,8 +63,10 @@ public class exercisePage extends AppCompatActivity {
         btn_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(exercisePage.this, gamePage.class);
+                Intent intent = new Intent(exercisePage.this,MainActivity.class);
+                intent.putExtra("fragFlag","2");
                 startActivity(intent);
+                finish();
             }
         });
 

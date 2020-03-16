@@ -19,12 +19,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="533dp"
+            android:layout_height="606dp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="66dp"
+                android:layout_height="119dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -32,7 +32,7 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="177dp">
+                android:layout_height="219dp">
 
                 <ImageView
                     android:id="@+id/img_action1"
@@ -74,14 +74,13 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="121dp"
-                android:layout_weight="1">
-
-            </FrameLayout>
+                android:layout_height="114dp"
+                android:layout_weight="1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="155dp"
+                android:layout_gravity="bottom"
                 android:gravity="bottom|center"
                 android:orientation="horizontal">
 

@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_above="@+id/imageView"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="71dp"
+            android:layout_marginBottom="40dp"
             android:text="Personal Center"
             android:textSize="36sp" />
 
@@ -27,7 +27,7 @@
             android:layout_height="100dp"
             android:layout_above="@+id/setting"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="80dp"
+            android:layout_marginBottom="65dp"
             android:clickable="true"
             app:srcCompat="@drawable/user" />
 
@@ -35,27 +35,27 @@
             android:id="@+id/Team10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Team10"
-            android:textSize="24sp"
             android:layout_above="@+id/setting"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="50dp"/>
+            android:layout_marginBottom="35dp"
+            android:text="Team10"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/setting"
             android:layout_width="160dp"
             android:layout_height="60dp"
-            android:text="@string/setting"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            android:text="@string/setting" />
 
         <Button
             android:id="@+id/favourite"
             android:layout_width="160dp"
             android:layout_height="60dp"
-            android:text="favourite"
             android:layout_below="@+id/setting"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="50dp"
+            android:text="favourite" />
 
         <Button
             android:id="@+id/download"
@@ -67,31 +67,4 @@
             android:text="download" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/home"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/home" />
-
-        <Button
-            android:id="@+id/game"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/game" />
-
-        <Button
-            android:id="@+id/me"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/me" />
-
-    </LinearLayout>
 </LinearLayout>

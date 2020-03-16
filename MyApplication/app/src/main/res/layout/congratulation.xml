@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="517dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="42dp"
+            android:gravity="center"
+            android:text="Congratulations,\n you have cleared all the quests!"
+            android:textSize="36sp"
+            android:visibility="visible" />
+
+
+        <ImageView
+            android:id="@+id/tree"
+            android:layout_width="298dp"
+            android:layout_height="350dp"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="0dp"
+            app:srcCompat="@drawable/game1_tree" />
+
+
+        <ImageView
+            android:id="@+id/apple1"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:layout_alignStart="@+id/tree"
+            android:layout_alignLeft="@+id/tree"
+            android:layout_alignBottom="@+id/tree"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginBottom="189dp"
+            android:background="@drawable/apple" />
+
+        <ImageView
+            android:id="@+id/apple2"
+            android:layout_width="37dp"
+            android:layout_height="38dp"
+            android:layout_alignStart="@+id/tree"
+            android:layout_alignLeft="@+id/tree"
+            android:layout_alignBottom="@+id/tree"
+            android:layout_marginStart="144dp"
+            android:layout_marginLeft="144dp"
+            android:layout_marginBottom="122dp"
+            android:background="@drawable/apple" />
+
+        <ImageView
+            android:id="@+id/apple3"
+            android:layout_width="37dp"
+            android:layout_height="35dp"
+            android:layout_alignStart="@+id/tree"
+            android:layout_alignLeft="@+id/tree"
+            android:layout_alignBottom="@+id/tree"
+            android:layout_marginStart="175dp"
+            android:layout_marginLeft="175dp"
+            android:layout_marginBottom="192dp"
+            android:background="@drawable/apple" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="124dp">
+
+        <Button
+            android:id="@+id/gamepage"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="120dp"
+            android:text="Back to Game"
+            android:textSize="24sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
