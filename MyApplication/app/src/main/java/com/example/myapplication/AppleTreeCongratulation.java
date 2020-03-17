@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Congratulation extends AppCompatActivity {
+public class AppleTreeCongratulation extends AppCompatActivity {
 
     private Button homepage;
 
@@ -24,7 +24,7 @@ public class Congratulation extends AppCompatActivity {
         btn_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Congratulation.this,MainActivity.class);
+                Intent intent = new Intent(AppleTreeCongratulation.this,MainActivity.class);
                 intent.putExtra("fragFlag","2");
                 startActivity(intent);
                 finish();

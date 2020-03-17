@@ -8,58 +8,65 @@
         android:layout_width="match_parent"
         android:layout_height="517dp">
 
+        <Button
+            android:id="@+id/back"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_menu_revert"
+            android:textSize="18sp" />
+
         <TextView
-            android:id="@+id/title1"
+            android:id="@+id/question_num"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="42dp"
-            android:text="Question 7"
+            android:text="Question 1"
             android:textSize="36sp"
             android:visibility="visible" />
 
+
         <TextView
-            android:id="@+id/YouZiYin"
+            android:id="@+id/question"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/title1"
+            android:layout_below="@+id/question_num"
             android:layout_alignParentLeft="false"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="1sp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="@string/question7"
-            android:textSize="20sp" />
-
+            android:text="@string/question1"
+            android:textSize="18sp" />
 
         <ImageView
             android:id="@+id/tree"
-            android:layout_width="298dp"
-            android:layout_height="350dp"
-            android:layout_below="@+id/YouZiYin"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_below="@+id/question"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="0dp"
             app:srcCompat="@drawable/game1_tree" />
 
 
         <TextView
             android:id="@+id/tv1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignStart="@+id/tree"
             android:layout_alignLeft="@+id/tree"
             android:layout_alignBottom="@+id/tree"
             android:layout_marginStart="58dp"
-            android:layout_marginLeft="58dp"
-            android:layout_marginBottom="226dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginBottom="220dp"
             android:background="#80FFFFFF"
             android:text="1" />
 
 
         <TextView
             android:id="@+id/tv2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignStart="@+id/tree"
             android:layout_alignLeft="@+id/tree"
             android:layout_alignBottom="@+id/tree"
@@ -71,8 +78,8 @@
 
         <TextView
             android:id="@+id/tv3"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignStart="@+id/tree"
             android:layout_alignLeft="@+id/tree"
             android:layout_alignBottom="@+id/tree"
@@ -84,32 +91,28 @@
 
         <FrameLayout
             android:id="@+id/hole1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignStart="@+id/tree"
             android:layout_alignLeft="@+id/tree"
             android:layout_alignBottom="@+id/tree"
             android:layout_marginStart="58dp"
-            android:layout_marginLeft="58dp"
-            android:layout_marginBottom="226dp">
+            android:layout_marginLeft="65dp"
+            android:layout_marginBottom="220dp">
 
+            <ImageView
+                android:id="@+id/apple1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="217dp"
+                android:layout_marginRight="215dp"
+                android:layout_marginBottom="220dp" />
         </FrameLayout>
-
-        <ImageView
-            android:id="@+id/apple1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_alignStart="@+id/tree"
-            android:layout_alignLeft="@+id/tree"
-            android:layout_alignBottom="@+id/tree"
-            android:layout_marginStart="58dp"
-            android:layout_marginLeft="58dp"
-            android:layout_marginBottom="226dp" />
 
         <FrameLayout
             android:id="@+id/hole2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignStart="@+id/tree"
             android:layout_alignLeft="@+id/tree"
             android:layout_alignBottom="@+id/tree"
@@ -121,8 +124,8 @@
 
         <ImageView
             android:id="@+id/apple2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignStart="@+id/tree"
             android:layout_alignLeft="@+id/tree"
             android:layout_alignBottom="@+id/tree"
@@ -132,8 +135,8 @@
 
         <FrameLayout
             android:id="@+id/hole3"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignStart="@+id/tree"
             android:layout_alignLeft="@+id/tree"
             android:layout_alignBottom="@+id/tree"
@@ -145,15 +148,14 @@
 
         <ImageView
             android:id="@+id/apple3"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignStart="@+id/tree"
             android:layout_alignLeft="@+id/tree"
             android:layout_alignBottom="@+id/tree"
             android:layout_marginStart="191dp"
             android:layout_marginLeft="191dp"
             android:layout_marginBottom="211dp" />
-
 
     </RelativeLayout>
 
@@ -166,39 +168,39 @@
 
         <TextView
             android:id="@+id/word1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="-1dp"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="-90dp"
             android:background="@drawable/apple"
             android:gravity="center"
-            android:text="寸"
+            android:text="月"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/word2"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="82dp"
             android:layout_marginLeft="82dp"
             android:layout_marginBottom="-90dp"
             android:background="@drawable/apple"
             android:gravity="center"
-            android:text="报"
+            android:text="明"
             android:textSize="24sp" />
 
 
         <TextView
             android:id="@+id/word3"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginStart="82dp"
             android:layout_marginLeft="82dp"
             android:layout_marginBottom="-90dp"
             android:background="@drawable/apple"
             android:gravity="center"
-            android:text="晖"
+            android:text="霜"
             android:textSize="24sp" />
 
 
@@ -206,14 +208,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="140dp"
-            android:layout_height="70dp"
-            android:text="Submit"
-            android:textSize="24sp" />
+        android:layout_height="65dp">
 
         <Button
             android:id="@+id/previous"
@@ -221,6 +216,14 @@
             android:layout_height="70dp"
             android:text="previous"
             android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="140dp"
+            android:layout_height="70dp"
+            android:text="Submit"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/next"

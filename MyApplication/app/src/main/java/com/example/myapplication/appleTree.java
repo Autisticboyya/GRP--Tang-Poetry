@@ -24,7 +24,7 @@ public class AppleTree extends AppCompatActivity {
     protected  class MyClickListener implements  View.OnClickListener{
         @Override
         public void onClick(View v){
-            startActivity(new Intent(AppleTree.this,Question1.class));
+            startActivity(new Intent(AppleTree.this,AppleTreeQuestion.class));
             finish();
         }
     }

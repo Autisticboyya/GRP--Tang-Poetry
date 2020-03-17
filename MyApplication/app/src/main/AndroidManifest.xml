@@ -47,16 +47,8 @@
         <activity android:name=".gameStoryResultPage"></activity>
 
         <activity android:name=".AppleTree"></activity>
-        <activity android:name=".Question1"/>
-        <activity android:name=".Question2"/>
-        <activity android:name=".Question3"/>
-        <activity android:name=".Question4"/>
-        <activity android:name=".Question5"/>
-        <activity android:name=".Question6"/>
-        <activity android:name=".Question7"/>
-        <activity android:name=".Question8"/>
-        <activity android:name=".Question9"/>
-        <activity android:name=".Congratulation"/>
+        <activity android:name=".AppleTreeQuestion"/>
+        <activity android:name=".AppleTreeCongratulation"/>
 
     </application>
 

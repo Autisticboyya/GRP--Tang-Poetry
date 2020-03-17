@@ -16,7 +16,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="42dp"
             android:gravity="center"
-            android:text="Congratulations,\n you have cleared all the quests!"
+            android:text="Congratulations!\n You have cleared all the quests!"
             android:textSize="36sp"
             android:visibility="visible" />
 
@@ -77,7 +77,7 @@
         <Button
             android:id="@+id/gamepage"
             android:layout_width="wrap_content"
-            android:layout_height="70dp"
+            android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginLeft="120dp"
             android:text="Back to Game"
