@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -68,9 +70,21 @@ public class exerciseResultPage extends AppCompatActivity {
         btn_exerciseWrong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reviewMode = 0;
-                Intent intent = new Intent(exerciseResultPage.this,exerciseWrongPage.class);
-                startActivity(intent);
+                if(wrongList.size()==0){
+                    new AlertDialog.Builder(exerciseResultPage.this)
+                            .setTitle("Reminder")
+                            .setMessage("There is no wrong question.")
+                            .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //do nothing
+                                }
+                            }).show();
+                }else{
+                    reviewMode = 0;
+                    Intent intent = new Intent(exerciseResultPage.this,exerciseWrongPage.class);
+                    startActivity(intent);
+                }
             }
         });
 

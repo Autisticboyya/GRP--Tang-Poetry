@@ -69,15 +69,27 @@ public class exerciseWrongPage extends AppCompatActivity {
         btn_changeModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(exerciseResultPage.reviewMode == 0){
-                    exerciseResultPage.reviewMode = 1;
-                    btn_changeModel.setText("REVIEW ALL QUESTIONS");
-                }else{
-                    exerciseResultPage.reviewMode = 0;
-                    btn_changeModel.setText("REVIEW WRONG QUESTIONS");
+                if(wrongList.size()==0){
+                    new AlertDialog.Builder(exerciseWrongPage.this)
+                            .setTitle("Reminder")
+                            .setMessage("There is no wrong question.")
+                            .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    //do nothing
+                                }
+                            }).show();
+                }else {
+                    if (exerciseResultPage.reviewMode == 0) {
+                        exerciseResultPage.reviewMode = 1;
+                        btn_changeModel.setText("REVIEW ALL QUESTIONS");
+                    } else {
+                        exerciseResultPage.reviewMode = 0;
+                        btn_changeModel.setText("REVIEW WRONG QUESTIONS");
+                    }
+                    Intent intent = new Intent(exerciseWrongPage.this, exerciseWrongPage.class);
+                    startActivity(intent);
                 }
-                Intent intent = new Intent(exerciseWrongPage.this, exerciseWrongPage.class);
-                startActivity(intent);
             }
         });
 
@@ -213,12 +225,12 @@ public class exerciseWrongPage extends AppCompatActivity {
         //assigns a value to the control
         questionNumber.setText(questionNum + "");
         String[] strArrQ = q.getQuestion().split("\\*");
-        question.setText(strArrQ[0]+"\n"+strArrQ[1]);
+        question.setText(strArrQ[0] + "\n" + strArrQ[1]);
         radioButtons[0].setText(q.getAnswerA());
         radioButtons[1].setText(q.getAnswerB());
         radioButtons[2].setText(q.getAnswerC());
         String[] strArr = q.getExplanation().split("\\*");
-        explaination.setText("\nExplaination:\n"+strArr[0]+"\n"+strArr[1]+"\n\n"+strArr[2]+"\n"+strArr[3]+"\n"+strArr[4]+"\n\n"+strArr[5]+"\n"+strArr[6]+"\n"+strArr[7]+"\n"+strArr[8]+"\n");
+        explaination.setText("\nExplaination:\n" + strArr[0] + "\n" + strArr[1] + "\n\n" + strArr[2] + "\n" + strArr[3] + "\n" + strArr[4] + "\n\n" + strArr[5] + "\n" + strArr[6] + "\n" + strArr[7] + "\n" + strArr[8] + "\n");
         image_hint.setVisibility(View.INVISIBLE);
         showPicture();
     }

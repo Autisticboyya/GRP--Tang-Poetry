@@ -52,9 +52,9 @@
         <shape>
             <!--  渐变 -->
             <gradient
-                android:centerColor="#FFEBCD"
-                android:endColor="#FDF5E6"
-                android:startColor="#FFE4B5"/>
+                android:startColor="#231f20"
+                android:centerColor="#363636"
+                android:endColor="#414042" />
                 //android:type="linear"
             <!-- 描边 -->
             <stroke
