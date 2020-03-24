@@ -20,7 +20,7 @@ public class downloadPage extends AppCompatActivity {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(downloadPage.this,homePage.class);
+                Intent intent = new Intent(downloadPage.this, homePage.class);
                 startActivity(intent);
             }
         });
@@ -32,7 +32,7 @@ public class downloadPage extends AppCompatActivity {
         btn_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(downloadPage.this,gamePage.class);
+                Intent intent = new Intent(downloadPage.this, gamePage.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class downloadPage extends AppCompatActivity {
         btn_me.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(downloadPage.this,personalCenterPage.class);
+                Intent intent = new Intent(downloadPage.this, personalCenterPage.class);
                 startActivity(intent);
             }
         });

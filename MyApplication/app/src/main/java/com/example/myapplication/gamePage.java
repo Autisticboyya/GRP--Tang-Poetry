@@ -2,50 +2,31 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
-public class gamePage extends AppCompatActivity {
+
+public class gamePage extends Fragment {
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.game);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.game,container,false);
 
-        /**
-         * goto home page
-         */
-        Button btn_home = (Button)findViewById(R.id.home);
-        btn_home.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(gamePage.this,homePage.class);
-                startActivity(intent);
-            }
-        });
-
-
-        /**
-         * goto me interface
-         */
-        Button btn_me = (Button)findViewById(R.id.me);
-        btn_me.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(gamePage.this,personalCenterPage.class);
-                startActivity(intent);
-            }
-        });
 
         /**
          * goto apple_tree game
          */
-        Button btn_apple_tree = (Button)findViewById(R.id.apple_tree);
+        Button btn_apple_tree = view.findViewById(R.id.apple_tree);
         btn_apple_tree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(gamePage.this,appleTree.class);
+                Intent intent = new Intent(getActivity(), AppleTree.class);
                 startActivity(intent);
             }
         });
@@ -53,11 +34,11 @@ public class gamePage extends AppCompatActivity {
         /**
          * goto poem_escape game
          */
-        Button btn_poem_escape = (Button)findViewById(R.id.apple_tree);
+        Button btn_poem_escape = view.findViewById(R.id.game_story);
         btn_poem_escape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(gamePage.this,poemEscape.class);
+                Intent intent = new Intent(getActivity(), gameStoryPage.class);
                 startActivity(intent);
             }
         });
@@ -65,13 +46,15 @@ public class gamePage extends AppCompatActivity {
         /**
          * goto poem_river game
          */
-        Button btn_poem_river = (Button)findViewById(R.id.apple_tree);
+        Button btn_poem_river = view.findViewById(R.id.exercise);
         btn_poem_river.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(gamePage.this,poemRiver.class);
+                Intent intent = new Intent(getActivity(), exercisePage.class);
                 startActivity(intent);
             }
         });
+        return view;
     }
+
 }

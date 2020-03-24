@@ -1,11 +1,100 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/black</item>
+
+        <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- night -->
+    <style name="NightAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/nightColorPrimary</item>
+        <item name="colorPrimaryDark">@color/nightColorPrimaryDark</item>
+        <item name="colorAccent">@color/nightColorAccent</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">@color/nightColorPrimaryDark</item>
+    </style>
+
+
+    <style name="AppTheme_brown" parent="Base.Theme.AppCompat.Light.DarkActionBar" >
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/brown</item>
+        <item name="colorPrimaryDark">@color/brown</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/brown</item>//窗口背景颜色
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@color/brown</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme_purple" parent="Base.Theme.AppCompat.Light.DarkActionBar" >
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/purple</item>
+        <item name="colorPrimaryDark">@color/purple</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/purple</item>//窗口背景颜色
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@android:color/holo_purple</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="AppTheme_green" parent="Base.Theme.AppCompat.Light.DarkActionBar" >
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/green</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/green</item>//窗口背景颜色
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@color/green</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme_cyan" parent="Base.Theme.AppCompat.Light.DarkActionBar" >
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/cyan</item>
+        <item name="colorPrimaryDark">@color/cyan</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/cyan</item>//窗口背景颜色
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@color/cyan</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme_cankao" parent="Base.Theme.AppCompat.Light.DarkActionBar" >
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>// App Bar 颜色
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>//状态栏颜色
+        <item name="colorAccent">@color/colorAccent</item>//控件选中状态下的颜色
+        <item name="android:windowBackground">@color/brown</item>//窗口背景颜色
+    </style>
+
+    <style name="dialog_translucent" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!-- 边框 -->
+        <item name="android:windowIsFloating">true</item><!-- 是否悬浮在activity上 -->
+        <item name="android:windowIsTranslucent">false</item><!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item><!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item><!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">false</item><!-- 模糊 -->
+        <item name="android:backgroundDimAmount">0.6</item><!-- 灰度 -->
+        <item name="android:windowContentOverlay">@null</item><!-- 对话框是否有遮盖 -->
+    </style>
+
+
+
 
 </resources>

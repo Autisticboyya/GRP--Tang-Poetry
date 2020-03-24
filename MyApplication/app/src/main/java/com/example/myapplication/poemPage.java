@@ -9,16 +9,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.greendao.Author;
 
 import java.util.List;
 
 import static com.example.myapplication.homePage.authorDao;
 
-public class poemPage extends AppCompatActivity {
-
+public class poemPage extends BaseActivity {
+    private int theme = R.style.AppTheme;
+    private  int nighttheme = R.style.NightAppTheme;
+    private boolean isnight;
+    private boolean iscolor;
+    private int ThemeColor;
+    public static long poem_index;
     public static String poemName_pp;
     public static String poemNameEnglish_pp;
     public static String authorName_pp;
@@ -28,14 +31,48 @@ public class poemPage extends AppCompatActivity {
     public static String EnglishVersion_pp;
     public static String webLink_pp;
     public static String background_pp;
+    private TextView view_comment;
 
     private List<Author> Authors;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        isnight = isEnableNightMode();
+        if (isnight == true){
+            setTheme(nighttheme);
+        }
+        iscolor = isEnableColorMode();
+        if (iscolor == true){
+            ThemeColor = checkThemeColor();
+            switch (ThemeColor){
+                case 1:
+                    theme = (theme == R.style.AppTheme) ? R.style.AppTheme_brown : R.style.AppTheme;
+                    setTheme(theme);
+                    break;
+                case 2:
+                    theme = (theme == R.style.AppTheme) ? R.style.AppTheme_purple: R.style.AppTheme;
+                    setTheme(theme);
+                    break;
+                case 3:
+                    theme = (theme == R.style.AppTheme) ? R.style.AppTheme_green: R.style.AppTheme;
+                    setTheme(theme);
+                    break;
+                case 4:
+                    theme = (theme == R.style.AppTheme) ? R.style.AppTheme_cyan : R.style.AppTheme;
+                    setTheme(theme);
+                    break;
+            }
+        }
         setContentView(R.layout.poem);
-
+        view_comment = findViewById(R.id.view_comment);
+        view_comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(poemPage.this, commentPage.class);
+                startActivity(intent);
+            }
+        });
 
         /**
          * 王的part

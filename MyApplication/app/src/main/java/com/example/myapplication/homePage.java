@@ -1,69 +1,46 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.example.greendao.Author;
 import com.example.greendao.AuthorDao;
 import com.example.greendao.DaoSession;
 import com.example.greendao.Poem;
 import com.example.greendao.PoemDao;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class homePage extends AppCompatActivity {
+public class homePage extends Fragment {
     public static PoemDao poemDao;
     public static AuthorDao authorDao;
+
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
-
-        //读取数据库
-        DaoSession daoSession = PoemList.getDaoSession();
-        poemDao = daoSession.getPoemDao();
-        authorDao = daoSession.getAuthorDao();
-
-        initData();
-
-
-        /**
-         * goto game interface
-         */
-        Button btn_game = (Button)findViewById(R.id.game);
-        btn_game.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(homePage.this,gamePage.class);
-                startActivity(intent);
-            }
-        });
-
-        /**
-         * goto me interface
-         */
-        Button btn_me = (Button)findViewById(R.id.me);
-        btn_me.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(homePage.this,personalCenterPage.class);
-                startActivity(intent);
-            }
-        });
+        View view = inflater.inflate(R.layout.home,container,false);
 
         /**
          * goto poems list interface
          */
-        Button btn_poems_list = (Button)findViewById(R.id.viewing_poems);
+        Button btn_poems_list = view.findViewById(R.id.viewing_poems);
         btn_poems_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(homePage.this,chooseDifficulty.class);
+                Intent intent = new Intent(getActivity(), chooseDifficulty.class);
                 startActivity(intent);
             }
         });
@@ -71,11 +48,11 @@ public class homePage extends AppCompatActivity {
         /**
          * goto daily poetry interface
          */
-        Button btn_daily_poetry = (Button)findViewById(R.id.daily_poetry);
+        Button btn_daily_poetry = view.findViewById(R.id.daily_poetry);
         btn_daily_poetry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(homePage.this,dailyPoetryPage.class);
+                Intent intent = new Intent(getActivity(),dailyPoetryPage.class);
                 startActivity(intent);
             }
         });
@@ -83,14 +60,26 @@ public class homePage extends AppCompatActivity {
         /**
          * goto user guide interface
          */
-        Button btn_user_guide = (Button)findViewById(R.id.user_guide);
+        Button btn_user_guide = view.findViewById(R.id.user_guide);
         btn_user_guide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(homePage.this,userGuidePage.class);
+                Intent intent = new Intent(getActivity(), userGuidePage.class);
                 startActivity(intent);
             }
         });
+
+
+
+        //读取数据库
+        DaoSession daoSession = PoemList.getDaoSession();
+        poemDao = daoSession.getPoemDao();
+        authorDao = daoSession.getAuthorDao();
+
+        initData();
+        return view;
+
+
     }
 
     /**
@@ -103,7 +92,7 @@ public class homePage extends AppCompatActivity {
     }
 
     private void readAuthorFromFile() {
-        AssetManager assetManager = getAssets();
+        AssetManager assetManager = getActivity().getAssets();
         try {
             InputStream inputStream = assetManager.open("author_introduction.txt");
             if (inputStream != null) {
@@ -126,7 +115,7 @@ public class homePage extends AppCompatActivity {
     }
 
     private void readPoemsFromFile() {
-        AssetManager assetManager = getAssets();
+        AssetManager assetManager = getActivity().getAssets();
         try {
             InputStream inputStream = assetManager.open("a.txt");
             if (inputStream != null) {

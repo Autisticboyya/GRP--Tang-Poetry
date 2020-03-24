@@ -4,28 +4,30 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/personal_center_background">
+   >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@drawable/personal_center_background"
+        >
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Personal Center"
-            android:textSize="36sp" />
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:id="@+id/iv_head"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_above="@+id/setting"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="54dp"
+            android:layout_marginLeft="54dp"
+            android:layout_marginEnd="289dp"
+            android:layout_marginRight="289dp"
+            android:layout_marginBottom="218dp"
             android:clickable="true"
             app:srcCompat="@drawable/user" />
 
@@ -33,63 +35,54 @@
             android:id="@+id/Team10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Team10"
-            android:textSize="24sp"
             android:layout_above="@+id/setting"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="50dp"/>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="141dp"
+            android:layout_marginLeft="141dp"
+            android:layout_marginBottom="238dp"
+            android:text="Team10"
+            android:textSize="24sp" />
 
         <Button
             android:id="@+id/setting"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="@string/setting"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true"
+            android:text="@string/setting" />
 
         <Button
             android:id="@+id/favourite"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="favourite"
             android:layout_below="@+id/setting"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="50dp"
+            android:text="favourite" />
 
         <Button
             android:id="@+id/download"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@+id/favourite"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:text="download" />
+
+        <Button
+            android:id="@+id/btn_photos"
+            android:layout_width="66dp"
+            android:layout_height="32dp"
+            android:layout_above="@+id/setting"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="58dp"
+            android:layout_marginLeft="58dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="171dp"
+            android:text="Album" />
+
     </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/home"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/home" />
-
-        <Button
-            android:id="@+id/game"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/game" />
-
-        <Button
-            android:id="@+id/me"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/me" />
-
-    </LinearLayout>
 </LinearLayout>

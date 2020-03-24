@@ -34,4 +34,21 @@
     <string name="an">an</string>
     <string name="a"><![CDATA[->]]></string>
     <string name="author">Author</string>
+    <string name="question1">床前 _1_ _2_ 光，\n The bright moonlight in front of the bed \n 疑似地上 _3_ 。\n is suspected to be frost on the ground.</string>
+    <string name="question2">返 _1_ 入深林，\n Where sunlight, entering a grove.\n 复 _2_ 青 _3_ 上。\nShines back to me from the green moss.</string>
+    <string name="question3">当 _1_ 怀 _2_日，\n And at last you think of returning home,\n 是妾断肠 _3_。\n now when my heart is almost broken.</string>
+    <string name="question4">_1_ 当凌绝 _2_，\n When shall I reach the top and hold, \n 一览众山 _3_ 。\n all mountains in a single glance.</string>
+    <string name="question5"> 但去 _1_ 复闻，\n So give me leave and ask me no questions, \n 白 _2_ 无 _3_ 时。\n white clouds pass there without end.</string>
+    <string name="question6"> _1_ 杯 _2_ 明月，\n Till, raising my cup, I asked the bright moon, \n 对 _3_ 成三人。\n to bring me my shadow and make us three. </string>
+    <string name="question7"> 谁言 _1_ 草心，\n But how much love has the inch-long grass, \n  _2_ 得三春 _3_ \n for three spring months of the light of the sun? </string>
+    <string name="question8"> 明 _1_ 出天 _2_ ，\n The bright moon lifts from the mountain of heaven, \n  苍茫 _3_ 海间。\n in an infinite haze of cloud and sea. </string>
+    <string name="question9"> 来往不 _1_ 人，\n Back and forth I go, scarcely meeting anyone, \n 长 _2_ 楚天 _3_。\n and sing a long poem and gaze at the blue sky. </string>
+
+    <string name="dialog_normal_more_button_content">Add this verse to your favourite?</string>
+    <string name="dialog_title">Tang Poetry</string>
+    <string name="dialog_btn_confirm_text">confirm</string>
+    <string name="dialog_btn_cancel_text">cancel</string>
+    <string name="dialog_btn_neutral_text">ignore</string>
+    <string name="dialog_btn_confirm_hint_text">Success!</string>
+    <string name="dialog_btn_cancel_hint_text">Operation canceled.</string>
 </resources>

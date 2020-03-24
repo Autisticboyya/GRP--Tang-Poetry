@@ -20,7 +20,7 @@ public class userGuidePage extends AppCompatActivity {
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(userGuidePage.this,homePage.class);
+                Intent intent = new Intent(userGuidePage.this, homePage.class);
                 startActivity(intent);
             }
         });
@@ -32,7 +32,7 @@ public class userGuidePage extends AppCompatActivity {
         btn_game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(userGuidePage.this,gamePage.class);
+                Intent intent = new Intent(userGuidePage.this, gamePage.class);
                 startActivity(intent);
             }
         });
@@ -44,7 +44,7 @@ public class userGuidePage extends AppCompatActivity {
         btn_me.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(userGuidePage.this,personalCenterPage.class);
+                Intent intent = new Intent(userGuidePage.this, personalCenterPage.class);
                 startActivity(intent);
             }
         });

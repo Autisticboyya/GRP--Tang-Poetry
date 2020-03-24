@@ -1,0 +1,97 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/user_picture"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_above="@+id/setting"
+        android:layout_margin="5dp"
+        android:clickable="true"
+        android:src="@drawable/user" />
+
+    <TextView
+        android:id="@+id/comment_floor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#88000000"
+        android:textSize="20dp"
+        android:layout_alignParentRight="true"
+        android:text="#"
+        android:layout_marginRight="5dp" />
+
+    <TextView
+        android:id="@+id/comment_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="15dp"
+        android:layout_toRightOf="@id/user_picture"
+        android:text="name"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp" />
+
+    <TextView
+        android:id="@+id/comment_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:textSize="12dp"
+        android:layout_toRightOf="@id/user_picture"
+        android:layout_below="@id/comment_name"
+        android:text="12/12/2019"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:id="@+id/comment_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_picture"
+        android:layout_margin="5dp"
+        android:textColor="#88000000"
+        android:text="content"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/comment_reply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comment_content"
+        android:layout_toRightOf="@id/comment_like"
+        android:layout_margin="5dp"
+        android:textColor="@color/colorPrimary"
+        android:text="reply"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/comment_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comment_content"
+        android:layout_margin="5dp"
+        android:textColor="@color/colorPrimary"
+        android:text="like"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/comment_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comment_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@id/comment_reply"
+        android:visibility="gone"
+        android:text="delete"
+        android:textColor="@color/colorPrimary"
+        android:textSize="12dp" />
+
+</RelativeLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5DC"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/month"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_alignParentRight="true"
+        android:text="Feb"
+        android:textColor="#88000000"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/month"
+        android:layout_alignParentRight="true"
+        android:text="27th, Sunday"
+        android:textColor="#88000000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/chinese_1"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="举头望明月，"
+        android:layout_above="@+id/chinese_2"
+        android:textColor="#88000000"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/chinese_2"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="低头思故乡。"
+        android:layout_above="@+id/english_1"
+        android:textColor="#88000000"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/english_1"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="Raising my head, I see the moon so bright;"
+        android:layout_centerInParent="true"
+        android:textColor="#88000000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/english_2"
+        android:layout_width="400dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:text="withdrawing my eyes, my nostalgia comes around."
+        android:layout_below="@+id/english_1"
+        android:textColor="#88000000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/writer_info"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/english_2"
+        android:text="Bai Li, 《静夜思》"
+        android:textColor="#88000000"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tv_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/writer_info"
+        android:text="view all..."
+        android:textColor="#88000000"
+        android:textSize="20dp" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/go_to_poem"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_marginRight="10dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:src="@drawable/back_arrow" />-->
+
+
+
+<!--    <ImageView-->
+<!--        android:id="@+id/iv_card"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_margin="10dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/home_page_background"-->
+<!--        android:layout_weight="1" />-->
+
+</RelativeLayout>

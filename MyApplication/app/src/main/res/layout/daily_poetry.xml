@@ -1,49 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/home_page_background"
+    tools:context=".dailyPoetryPage">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+    <ImageView
+        android:id="@+id/back_home"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back_arrow" />
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Daily Poetry"
-            android:textSize="36sp" />
-    </RelativeLayout>
+    <poemListTools.SwipeCardLayout
+        android:id="@+id/card"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/home"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/home" />
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    android:orientation="vertical"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent">-->
 
-        <Button
-            android:id="@+id/game"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/game" />
+    <!--    <com.example.poemListTools.SwipeCardLayout-->
+    <!--        android:id="@+id/scl_layout"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"/>-->
 
-        <Button
-            android:id="@+id/me"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:text="@string/me" />
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_weight="1">-->
 
-    </LinearLayout>
+    <!--        <TextView-->
+    <!--            android:id="@+id/title"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_centerHorizontal="true"-->
+    <!--            android:text="Daily Poetry"-->
+    <!--            android:textSize="36sp" />-->
+    <!--    </RelativeLayout>-->
 
-</LinearLayout>
+    <!--    <LinearLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="horizontal">-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/home"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="70dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:text="@string/home" />-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/game"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="70dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:text="@string/game" />-->
+
+    <!--        <Button-->
+    <!--            android:id="@+id/me"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="70dp"-->
+    <!--            android:layout_weight="1"-->
+    <!--            android:text="@string/me" />-->
+
+    <!--    </LinearLayout>-->
+
+    <!--</LinearLayout>-->

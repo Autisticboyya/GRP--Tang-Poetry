@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
@@ -12,30 +13,41 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.greendao.DaoSession;
 import com.example.greendao.Poem;
 import com.example.greendao.PoemDao;
 import com.example.sortrecyclerview.ClearEditText;
 import com.example.sortrecyclerview.SideBar;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.myapplication.homePage.poemDao;
 import static com.example.myapplication.poemPage.EnglishVersion_pp;
-import static com.example.myapplication.poemPage.chineseVersion_pp;
-import static com.example.myapplication.poemPage.poemName_pp;
+import static com.example.myapplication.poemPage.authorNameEnglish_pp;
 import static com.example.myapplication.poemPage.authorName_pp;
+import static com.example.myapplication.poemPage.background_pp;
+import static com.example.myapplication.poemPage.chineseVersion_pp;
 import static com.example.myapplication.poemPage.kindOfPoem_pp;
 import static com.example.myapplication.poemPage.poemNameEnglish_pp;
-import static com.example.myapplication.poemPage.authorNameEnglish_pp;
+import static com.example.myapplication.poemPage.poemName_pp;
 import static com.example.myapplication.poemPage.webLink_pp;
-import static com.example.myapplication.poemPage.background_pp;
 
-public class poemsPage extends AppCompatActivity {
-
+public class poemsPage extends BaseActivity {
+    private int theme = R.style.AppTheme;
+    private  int nighttheme = R.style.NightAppTheme;
+    private boolean isnight;
+    private boolean iscolor;
+    private int ThemeColor;
+    private PoemDao poemDao;
     private RecyclerView mRecyclerView;
     private HomeAdapter mAdapter;
     private LinearLayoutManager manager;
@@ -49,8 +61,38 @@ public class poemsPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.poems);
 
+        isnight = isEnableNightMode();
+        if (isnight == true){
+            setTheme(nighttheme);
+        }
+        iscolor = isEnableColorMode();
+        if (iscolor == true){
+            ThemeColor = checkThemeColor();
+            switch (ThemeColor){
+                case 1:
+                    theme = (theme == R.style.AppTheme) ? R.style.AppTheme_brown : R.style.AppTheme;
+                    setTheme(theme);
+                    break;
+                case 2:
+                    theme = (theme == R.style.AppTheme) ? R.style.AppTheme_purple: R.style.AppTheme;
+                    setTheme(theme);
+                    break;
+                case 3:
+                    theme = (theme == R.style.AppTheme) ? R.style.AppTheme_green: R.style.AppTheme;
+                    setTheme(theme);
+                    break;
+                case 4:
+                    theme = (theme == R.style.AppTheme) ? R.style.AppTheme_cyan : R.style.AppTheme;
+                    setTheme(theme);
+                    break;
+            }
+        }
+        setContentView(R.layout.poems);
+        DaoSession daoSession = PoemList.getDaoSession();
+        poemDao = daoSession.getPoemDao();
+
+        //initData();
         initView();
         initButton();
 
@@ -95,7 +137,7 @@ public class poemsPage extends AppCompatActivity {
                                 where(PoemDao.Properties.KindOfPoem.eq(kind)).build().list();
                     }else{
                         Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).
-                                where(PoemDao.Properties.KindOfPoem.eq(kind),PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+                                where(PoemDao.Properties.KindOfPoem.eq(kind), PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
                     }
                 }
                 mAdapter.updateList(Poems_middle);
@@ -120,7 +162,7 @@ public class poemsPage extends AppCompatActivity {
                                 where(PoemDao.Properties.KindOfPoem.eq(kind)).build().list();
                     }else{
                         Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.AuthorNameEnglish).
-                                where(PoemDao.Properties.KindOfPoem.eq(kind),PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+                                where(PoemDao.Properties.KindOfPoem.eq(kind), PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
                     }
                 }
                 mAdapter.updateList(Poems_middle);
@@ -188,6 +230,37 @@ public class poemsPage extends AppCompatActivity {
             }
         });
     }
+
+/*
+    protected void initData() {
+        poemDao.deleteAll();
+        readFromFile();
+    }
+
+    private void readFromFile() {
+        AssetManager assetManager = getAssets();
+        try {
+            InputStream inputStream = assetManager.open("a.txt");
+            if (inputStream != null) {
+                InputStreamReader inputReader = new InputStreamReader(inputStream);
+                BufferedReader buffReader = new BufferedReader(inputReader);
+                String line;
+                //分行读取
+                buffReader.readLine();
+                long counter = 1;
+                while ((line = buffReader.readLine()) != null) {
+                    String[] strArr = line.split(":");
+                    Poem poem = new Poem(counter,strArr[0],strArr[1],strArr[2],strArr[3],strArr[4],strArr[5],strArr[6],null,null);
+                    poemDao.insert(poem);
+                    counter = counter + 1;
+                }
+                inputStream.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+ */
 
     /**
      * 初始化除按钮外的所有控件
@@ -301,7 +374,7 @@ public class poemsPage extends AppCompatActivity {
                         where(PoemDao.Properties.KindOfPoem.eq(kind)).build().list();
             }else{
                 Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.PoemNameEnglish).
-                        where(PoemDao.Properties.KindOfPoem.eq(kind),PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+                        where(PoemDao.Properties.KindOfPoem.eq(kind), PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
             }
         }else if(orderWay == 2){
             if(difficulty.equals("0")){
@@ -309,7 +382,7 @@ public class poemsPage extends AppCompatActivity {
                         where(PoemDao.Properties.KindOfPoem.eq(kind)).build().list();
             }else{
                 Poems_middle = poemDao.queryBuilder().orderAsc(PoemDao.Properties.AuthorNameEnglish).
-                        where(PoemDao.Properties.KindOfPoem.eq(kind),PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
+                        where(PoemDao.Properties.KindOfPoem.eq(kind), PoemDao.Properties.Difficulty.eq(difficulty)).build().list();
             }
         }
         mAdapter.updateList(Poems_middle);
@@ -363,7 +436,7 @@ public class poemsPage extends AppCompatActivity {
             holder.btn_go_in.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(poemsPage.this,poemPage.class);
+                    Intent intent = new Intent(poemsPage.this, poemPage.class);
                     startActivity(intent);
                     //传值到poem.xml
                     poemName_pp = Poems.get(position).getPoemName();

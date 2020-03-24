@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/favourite_title"
         android:layout_weight="1">
 
         <TextView
@@ -15,35 +16,51 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="Favourite"
-            android:textSize="36sp" />
+            android:textSize="30sp" />
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/favourite_list"
+        android:layout_width="match_parent"
+        android:layout_height="658dp"
+        android:layout_below="@+id/favourite_title"
+        android:layout_above="@id/buttons">
+
+        <ListView
+            android:id="@+id/favourite_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fastScrollEnabled="true"></ListView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/home"
-            android:layout_width="0dp"
+            android:layout_width="140dp"
             android:layout_height="70dp"
-            android:layout_weight="1"
             android:text="@string/home" />
 
         <Button
             android:id="@+id/game"
-            android:layout_width="0dp"
+            android:layout_width="140dp"
             android:layout_height="70dp"
-            android:layout_weight="1"
+            android:layout_toRightOf="@id/home"
             android:text="@string/game" />
 
         <Button
             android:id="@+id/me"
-            android:layout_width="0dp"
+            android:layout_width="140dp"
             android:layout_height="70dp"
-            android:layout_weight="1"
+            android:layout_toRightOf="@id/game"
             android:text="@string/me" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>
